@@ -1,0 +1,243 @@
+//flexbox
+.flex-column {
+  display: flex;
+  flex-flow: column wrap;
+}
+.flex-column-reverse {
+  display: flex;
+  flex-flow: column-reverse wrap;
+}
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+.flex-row-reverse {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  align-content: flex-start;
+}
+.align-start {
+  align-content: flex-start;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-content: flex-end;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.space-around {
+  justify-content: space-around;
+}
+.space-between {
+  justify-content: space-between;
+}
+.align-self-start {
+  align-self: flex-start;
+}
+.align-self-center {
+  align-self: center;
+}
+.align-self-end {
+  align-self: flex-end;
+}
+.justify-self-start {
+  justify-self: flex-start;
+}
+.justify-self-center {
+  justify-self: center;
+}
+.justify-self-end {
+  justify-self: flex-end;
+}
+
+$x: 1;
+
+// order
+@for $x from 1 through 20 {
+  .order-#{$x} {
+    order: $x;
+  }
+}
+
+// flex-grow
+@for $x from 1 through 10 {
+  .grow-#{$x} {
+    flex-grow: $x;
+  }
+}
+
+//index de los archivos
+.zIndex-1 {
+  z-index: 1;
+}
+.zIndex-100 {
+  z-index: 100;
+}
+.zIndex-200 {
+  z-index: 200;
+}
+
+//centrado de contenedores normales
+.m-auto {
+  margin: 0px auto;
+}
+
+//funcionalidades para textos
+.text-start {
+  text-align: start;
+}
+.text-center {
+  text-align: center;
+}
+.text-end {
+  text-align: end;
+}
+.bold {
+  font-weight: bold;
+}
+.decoration-none {
+  text-decoration: none;
+}
+.white {
+  color: white;
+}
+.black {
+  color: black;
+}
+
+//background-image
+.background-image {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.background-repeat {
+  background-repeat: repeat;
+}
+
+// Overflow de los contenedores
+.scroll-x {
+  overflow-x: scroll;
+}
+.scroll-y {
+  overflow-y: scroll;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+
+//posiciones de los elementos
+.fixed {
+  position: fixed;
+}
+.absolute {
+  position: absolute;
+}
+
+.block {
+  display: block;
+}
+
+$i: 1;
+
+//Border Radius
+@for $i from 1 through 99 {
+  .border-radius-#{$i} {
+    border-radius: 0px + $i;
+  }
+}
+
+.border-radius-100 {
+  border-radius: 100%;
+}
+
+// flex basis
+@for $i from 1 through 100 {
+  .basis-#{$i} {
+    flex-basis: 0% + $i;
+  }
+}
+
+// width
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: 0% + $i;
+  }
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+// height
+@for $i from 1 through 100 {
+  .h-#{$i} {
+    height: 0% + $i;
+  }
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+// font size
+@for $i from 1 through 50 {
+  .font-size-#{$i} {
+    font-size: 0em + $i / 10;
+  }
+}
+
+// margins
+@for $i from 1 through 50 {
+  .mt-#{$i} {
+    margin-top: 0px + $i;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: 0px + $i;
+  }
+
+  .mr-#{$i} {
+    margin-right: 0px + $i;
+  }
+
+  .ml-#{$i} {
+    margin-left: 0px + $i;
+  }
+
+  .m-#{$i} {
+    margin: 0px + $i;
+  }
+}
+
+// padings
+@for $i from 1 through 50 {
+  .pt-#{$i} {
+    padding-top: 0px + $i;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: 0px + $i;
+  }
+
+  .pr-#{$i} {
+    padding-right: 0px + $i;
+  }
+
+  .pl-#{$i} {
+    padding-left: 0px + $i;
+  }
+
+  .p-#{$i} {
+    padding: 0px + $i;
+  }
+}
