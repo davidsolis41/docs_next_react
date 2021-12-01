@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import GlobalReducer from "./GlobalReducer";
 import GlobalContext from "./globalContext";
@@ -25,7 +25,7 @@ export default function GlobalState({ children }: any): JSX.Element {
   };
 
   //utilizamos el useReducer que recibe el deducer y el estado inicial
-  const [state, dispatch] = useReducer(
+  const [state, dispatch] = React.useReducer(
     GlobalReducer,
     initialState,
     (initialState: IData): IData => {
@@ -74,7 +74,7 @@ export default function GlobalState({ children }: any): JSX.Element {
   };
 
   //inicializacion del contenido del context
-  useEffect(() => {
+  React.useEffect(() => {
     //inicializaciones asíncronas
     (async () => {})();
 
