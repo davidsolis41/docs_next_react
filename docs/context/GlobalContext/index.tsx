@@ -29,7 +29,7 @@ export default function GlobalState({ children }: any): JSX.Element {
     GlobalReducer,
     initialState,
     (initialState: IData): IData => {
-      // Aqui podemos inicializar la data o hacer una funcion que lo haga y ejecutarla aqui. Solo si es necesario
+      // Aqui podemos inicializar el context, solo con valores sincronos
       initialState.theme = "dark";
       return initialState;
     }
@@ -73,9 +73,22 @@ export default function GlobalState({ children }: any): JSX.Element {
     dispatch({ type: TOGGLE_THEME, payload: tema });
   };
 
-  //ejecucion automatica para comprobar el login
+  //inicializacion del contenido del context
   useEffect(() => {
+    //inicializaciones asíncronas
+    (async () => {})();
+
+    //ejecucion automatica para comprobar el login al ingresar a la pantalla
     getLogin();
+
+    //temporizador de 15 minutos para comprobar continuamente el login
+    const timerLoggin: number = window.setInterval(() => {
+      getLogin();
+    }, 900000);
+
+    return () => {
+      window.clearInterval(timerLoggin);
+    };
   }, []);
 
   //objeto con todo lo que va a poder usar el provider
