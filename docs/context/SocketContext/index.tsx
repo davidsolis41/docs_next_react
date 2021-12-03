@@ -18,6 +18,7 @@ function SocketState({ children }: { children?: any }) {
       io(urlSocket, {
         transports: ["websocket"],
         query: { "x-access-token": token },
+        autoConnect: false,
       }),
     [token]
   );

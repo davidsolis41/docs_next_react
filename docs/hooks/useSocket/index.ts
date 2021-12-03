@@ -34,14 +34,14 @@ function useSocket(url: string, token: string): IReturnUseSocket {
 
   if (typeof window !== "undefined") {
     return {
-      socket,
+      io: socket,
       online,
       conectar,
       desconectar,
     };
   } else {
     return {
-      socket: {
+      io: {
         on: () => {},
         once: () => {},
         off: () => {},
