@@ -6,6 +6,7 @@ import {
   ThemeProvider,
 } from "@mui/material/styles";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
+import { Components } from "@mui/material/styles/components";
 import useGlobalContext from "../GlobalContext/useGlobalContext";
 
 interface Iprops {
@@ -13,15 +14,15 @@ interface Iprops {
 }
 
 export default function CustomTheme(props: Iprops) {
-  let {
+  const {
     data: { theme },
   } = useGlobalContext();
 
-  let fuenteTitulos: string = "";
-  let fuenteSubTitulos: string = "";
-  let fuenteParrafos: string = "";
-  let fuenteBotones: string = "";
-  let fuenteCaption: string = "";
+  const fuenteTitulos: string = "";
+  const fuenteSubTitulos: string = "";
+  const fuenteParrafos: string = "";
+  const fuenteBotones: string = "";
+  const fuenteCaption: string = "";
 
   let typography: TypographyOptions = {
     htmlFontSize: 16,
@@ -111,7 +112,9 @@ export default function CustomTheme(props: Iprops) {
     },
   };
 
-  let lightTheme: ThemeOptions = {
+  const components: Components = {};
+
+  const lightTheme: ThemeOptions = {
     palette: {
       mode: "light",
       //colores para elementos
@@ -137,9 +140,10 @@ export default function CustomTheme(props: Iprops) {
       },
     },
     typography,
+    components,
   };
 
-  let darkTheme: ThemeOptions = {
+  const darkTheme: ThemeOptions = {
     palette: {
       mode: "dark",
       //colores para elementos
@@ -166,6 +170,7 @@ export default function CustomTheme(props: Iprops) {
       },
     },
     typography,
+    components,
   };
 
   let themaSeleccionado: ThemeOptions =
