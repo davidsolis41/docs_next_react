@@ -1,0 +1,1 @@
+// <PaginationTable {...(tableInstance as ITableInstance)} />
