@@ -1,4 +1,12 @@
 class arrayUtils {
+  eliminarRepetidos(array: any[]) {
+    let result: any[] = [];
+    array.forEach((item: any) => {
+      if (!result.includes(item)) result.push(item);
+    });
+    return result;
+  }
+
   menorAMayor(arrayNumber: any[]): number[] {
     return arrayNumber.map((e) => e).sort((a, b) => Number(a) - Number(b));
   }
