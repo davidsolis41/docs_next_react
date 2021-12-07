@@ -1,17 +1,26 @@
 class arrayObjectsUtils {
-  menorAMayor(arrayObjetos: any[], valorFiltrar: string): object[] {
+  eliminarRepetidos(arrayObjetos: any[], valorFiltrar: string) {
+    let result: any[] = [];
+    arrayObjetos.forEach((item: any) => {
+      if (!result.find((res: any) => res[valorFiltrar] === item[valorFiltrar]))
+        result.push(item);
+    });
+    return result;
+  }
+
+  menorAMayor(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((e) => e)
       .sort((a, b) => Number(a[valorFiltrar]) - Number(b[valorFiltrar]));
   }
 
-  mayorAMenor(arrayObjetos: any[], valorFiltrar: string): object[] {
+  mayorAMenor(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((e) => e)
       .sort((a, b) => Number(b[valorFiltrar]) - Number(a[valorFiltrar]));
   }
 
-  aZ(arrayObjetos: any[], valorFiltrar: string): object[] {
+  aZ(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((el, i) =>
         Object({ index: i, value: el[valorFiltrar].toLowerCase() })
@@ -20,7 +29,7 @@ class arrayObjectsUtils {
       .map((el: any) => arrayObjetos[el.index]);
   }
 
-  zA(arrayObjetos: any[], valorFiltrar: string): object[] {
+  zA(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((el, i) =>
         Object({ index: i, value: el[valorFiltrar].toLowerCase() })
@@ -29,14 +38,14 @@ class arrayObjectsUtils {
       .map((el: any) => arrayObjetos[el.index]);
   }
 
-  trueFalse(arrayObjetos: any[], valorFiltrar: string): object[] {
+  trueFalse(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((el, i) => Object({ index: i, value: Boolean(el[valorFiltrar]) }))
       .sort((a, b) => (a.value > b.value ? -1 : a.value < b.value ? 1 : 0))
       .map((el) => arrayObjetos[el.index]);
   }
 
-  falseTrue(arrayObjetos: any[], valorFiltrar: string): object[] {
+  falseTrue(arrayObjetos: any[], valorFiltrar: string) {
     return arrayObjetos
       .map((el, i) => Object({ index: i, value: Boolean(el[valorFiltrar]) }))
       .sort((a, b) => (a.value > b.value ? 1 : a.value < b.value ? -1 : 0))
@@ -48,7 +57,7 @@ class arrayObjectsUtils {
     valorFiltrar: string,
     inicial: number | string,
     final: number | string
-  ): object[] {
+  ) {
     return arrayObjetos
       .map((e) => e)
       .filter(
