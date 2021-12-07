@@ -15,6 +15,17 @@ const encabezadosNormales = React.useMemo(
   []
 );
 
+const encabezadoConCeldaPerzonalizada = React.useMemo(
+  () => [
+    {
+      Header: "Age",
+      accessor: "age",
+      Cell: (e: any) => <strong>{e.value}</strong>,
+    },
+  ],
+  []
+);
+
 const agrupacionEncabezados = React.useMemo(
   () => [
     {

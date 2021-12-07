@@ -14,8 +14,20 @@ import FootersTable from "./components/footersTable";
 import PaginationTable from "./components/paginationTable";
 import { ITableInstance } from "./typesTable";
 
+interface ITable {
+  cols: any[];
+  dataa: any[];
+  updateData: (
+    idItem: number | string,
+    value: any,
+    setValue: React.Dispatch<any>
+  ) => Promise<void>;
+}
+
 // Be sure to pass our updateMyData and the skipPageReset option
-function Table({ columns, data, updateData }: any) {
+function Table({ cols, dataa, updateData }: ITable) {
+  const columns = React.useMemo(() => cols, [cols]);
+  const data = React.useMemo(() => dataa, [dataa]);
   const tableInstance = useTable(
     {
       columns,
@@ -23,10 +35,10 @@ function Table({ columns, data, updateData }: any) {
       defaultColumn: { id: "id", Cell: CeldaEditable }, // establecemos la propiedad que será el id y la celda que van a renderizar los campos
       updateData, // no forma parte del paquete, pero todas las funciones que pongamos aqui estaran en la instancia
     } as any,
-    usePagination,
-    useSortBy,
     useGlobalFilter,
     useFilters,
+    useSortBy,
+    usePagination,
     (hooks) => {}
   );
 

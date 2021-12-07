@@ -11,8 +11,7 @@ interface IPropsCeldaEditable extends Cell {
 
 function CeldaEditable({
   value: initialValue,
-  row: { id, values },
-  column: { id: idColumn },
+  row: { values },
   updateData, // esta es la funcion que se le ha pasado a la instancia de tabla
 }: IPropsCeldaEditable) {
   // Estado para la celda, para mantener y actualizar su valor
@@ -24,7 +23,7 @@ function CeldaEditable({
 
   // Actualizamos la información en nuestra api
   const onBlur = async () => {
-    await updateData(id, value, setValue);
+    await updateData(values.id, value, setValue);
   };
 
   // seteamos el valor inicial, si es proporcionado
