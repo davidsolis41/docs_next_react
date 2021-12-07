@@ -11,7 +11,7 @@ export type PropsTexFormField = {
 const MyTextField = styled(TextF)(
   ({ theme }) => `
   & .MuiOutlinedInput-input {
-    padding: 11px 11px;
+    padding: 9px 10px;
   }
 
   & label {

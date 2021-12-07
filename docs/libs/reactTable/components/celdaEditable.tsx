@@ -3,19 +3,27 @@ import { Cell } from "react-table";
 
 interface IPropsCeldaEditable extends Cell {
   updateData: (
-    idItem: any,
+    rowIndex: number,
+    columnId: string,
     value: any,
-    setValue: React.Dispatch<any>
+    setValue: React.Dispatch<any>,
+    values: any
   ) => Promise<void>;
 }
 
 function CeldaEditable({
   value: initialValue,
-  row: { values },
+  row: { values, index: rowIndex },
+  column: { id: columnId },
   updateData, // esta es la funcion que se le ha pasado a la instancia de tabla
 }: IPropsCeldaEditable) {
   // Estado para la celda, para mantener y actualizar su valor
   const [value, setValue] = React.useState<any>(initialValue);
+
+  // seteamos el valor inicial, si es proporcionado
+  React.useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -23,13 +31,8 @@ function CeldaEditable({
 
   // Actualizamos la información en nuestra api
   const onBlur = async () => {
-    await updateData(values.id, value, setValue);
+    await updateData(rowIndex, columnId, value, setValue, values);
   };
-
-  // seteamos el valor inicial, si es proporcionado
-  React.useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
 
   return <input value={value} onChange={onChange} onBlur={onBlur} />;
 }

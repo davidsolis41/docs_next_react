@@ -18,9 +18,11 @@ interface ITable {
   cols: any[];
   dataa: any[];
   updateData: (
-    idItem: number | string,
+    rowIndex: number,
+    columnId: string,
     value: any,
-    setValue: React.Dispatch<any>
+    setValue: React.Dispatch<any>,
+    values: any
   ) => Promise<void>;
   setSelectedRows?: (data: any[]) => void;
 }
@@ -33,7 +35,7 @@ function Table({ cols, dataa, updateData, setSelectedRows }: ITable) {
     {
       columns,
       data,
-      defaultColumn: { id: "id", Cell: CeldaEditable }, // establecemos la propiedad que será el id y la celda que van a renderizar los campos
+      defaultColumn: { Cell: CeldaEditable }, // establecemos la propiedad que será el id y la celda que van a renderizar los campos
       updateData, // no forma parte del paquete, pero todas las funciones que pongamos aqui estaran en la instancia
     } as any,
     useGlobalFilter,

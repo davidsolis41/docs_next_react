@@ -4,7 +4,7 @@ import Input from "@mui/material/TextField";
 const TextField = styled(Input)(
   ({ theme }) => `
   & .MuiOutlinedInput-input {
-    padding: 11px 11px;
+    padding: 9px 10px;
   }
 
   & label {

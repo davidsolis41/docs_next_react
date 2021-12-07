@@ -8,6 +8,7 @@ const componente = styled(TextField)(
     transition: ${theme.transitions.create(["background-color", "transform"], {
       duration: theme.transitions.duration.standard,
     })};
+    
     &:hover {
         background-color: ${theme.palette.secondary};
         transform: scale(1.3);
