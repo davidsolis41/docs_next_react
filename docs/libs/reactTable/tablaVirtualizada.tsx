@@ -13,9 +13,20 @@ import CeldaEditable from "./components/celdaEditable";
 import FootersTable from "./components/footersTable";
 import PaginationTable from "./components/paginationTable";
 import { ITableInstance } from "./typesTable";
+interface ITable {
+  cols: any[];
+  dataa: any[];
+  updateData: (
+    idItem: number | string,
+    value: any,
+    setValue: React.Dispatch<any>
+  ) => Promise<void>;
+  setSelectedRows: (data: any[]) => void;
+}
 
-// Be sure to pass our updateMyData and the skipPageReset option
-function Table({ columns, data, updateData }: any) {
+function Table({ cols, dataa, updateData, setSelectedRows }: ITable) {
+  const columns = React.useMemo(() => cols, [cols]);
+  const data = React.useMemo(() => dataa, [dataa]);
   const tableInstance = useTable(
     {
       columns,
@@ -55,6 +66,11 @@ function Table({ columns, data, updateData }: any) {
     },
     [prepareRow, rows]
   );
+
+  //seteamos en un estado fuera de la tabla los 'nombre' de las filas seleccionadas
+  React.useEffect(() => {
+    setSelectedRows!(selectedFlatRows.map((d: any) => d.original.nombre));
+  }, [selectedFlatRows]);
 
   // Renderizar la tabla
   return (

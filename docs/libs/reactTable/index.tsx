@@ -22,10 +22,11 @@ interface ITable {
     value: any,
     setValue: React.Dispatch<any>
   ) => Promise<void>;
+  setSelectedRows?: (data: any[]) => void;
 }
 
 // Be sure to pass our updateMyData and the skipPageReset option
-function Table({ cols, dataa, updateData }: ITable) {
+function Table({ cols, dataa, updateData, setSelectedRows }: ITable) {
   const columns = React.useMemo(() => cols, [cols]);
   const data = React.useMemo(() => dataa, [dataa]);
   const tableInstance = useTable(
@@ -52,6 +53,11 @@ function Table({ cols, dataa, updateData }: ITable) {
     page,
     selectedFlatRows, // contenedor de las filas seleccionadas
   } = tableInstance as ITableInstance;
+
+  //seteamos en un estado fuera de la tabla los 'nombre' de las filas seleccionadas
+  React.useEffect(() => {
+    setSelectedRows!(selectedFlatRows.map((d: any) => d.original.nombre));
+  }, [selectedFlatRows]);
 
   // Renderizar la tabla
   return (
