@@ -19,6 +19,7 @@ const validationSchema = yup.object({
 
 function Form() {
   const {
+    watch,
     register,
     handleSubmit,
     control,
@@ -66,6 +67,8 @@ function Form() {
       }
     }
   }
+
+  React.useEffect(() => {}, [watch("email")]);
 
   return (
     <>
