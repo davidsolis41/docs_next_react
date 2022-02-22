@@ -6,16 +6,19 @@ import SendIcon from "@mui/icons-material/Send";
 function button() {
   return (
     <Button
-      onClick={() => {}}
-      variant="outlined" // "contained" | "text"
+      aria-label="texto de ayuda a ceguera"
+      variant="outlined" // outlined | contained | text
       color="primary"
-      size="medium"
+      size="medium" // small | medium | large
+      component="button" // componente HTML que usara
+      href="#contained-buttons" // si es un boton de LINK
       startIcon={<DeleteIcon />} //OPCIONAL icono al inicio
       endIcon={<SendIcon />} //OPCIONAL icono al final
-      aria-label="texto de ayuda a ceguera"
       disabled={false}
       disableElevation={false}
+      tabIndex={1}
       sx={{}}
+      onClick={() => {}}
     >
       Contained
     </Button>
