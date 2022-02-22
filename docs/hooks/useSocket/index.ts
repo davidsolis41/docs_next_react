@@ -14,14 +14,6 @@ function useSocket(url: string, token: string): IReturnUseSocket {
     [token]
   );
 
-  const conectar = () => {
-    if (!socket?.connected) socket?.connect();
-  };
-
-  const desconectar = () => {
-    if (socket && socket.connected) socket?.disconnect();
-  };
-
   React.useEffect(() => {
     if (socket) {
       setOnline(socket.connected);
@@ -36,8 +28,6 @@ function useSocket(url: string, token: string): IReturnUseSocket {
     return {
       io: socket,
       online,
-      conectar,
-      desconectar,
     };
   } else {
     return {
@@ -51,8 +41,6 @@ function useSocket(url: string, token: string): IReturnUseSocket {
         id: "",
       },
       online: false,
-      conectar: () => {},
-      desconectar: () => {},
     };
   }
 }
