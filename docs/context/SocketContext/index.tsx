@@ -23,14 +23,6 @@ function SocketState({ children }: { children?: any }) {
     [token]
   );
 
-  const conectar = () => {
-    if (!socket?.connected) socket?.connect();
-  };
-
-  const desconectar = () => {
-    if (socket && socket.connected) socket?.disconnect();
-  };
-
   const [online, setOnline] = React.useState(false);
 
   React.useEffect(() => {
@@ -48,9 +40,7 @@ function SocketState({ children }: { children?: any }) {
   }, [socket]);
 
   return (
-    <SocketContext.Provider
-      value={{ io: socket, online, conectar, desconectar } as ISocketContext}
-    >
+    <SocketContext.Provider value={{ io: socket, online } as ISocketContext}>
       {children}
     </SocketContext.Provider>
   );

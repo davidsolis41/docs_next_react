@@ -5,4 +5,3 @@ import { IGlobalState } from "./types";
 const useGlobalContext = (): IGlobalState => useContext(GlobalContext) as any;
 
 export default useGlobalContext;
-

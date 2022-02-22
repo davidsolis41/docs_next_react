@@ -37,7 +37,8 @@ export default function GlobalState({ children }: any): JSX.Element {
 
   //acciones que se pueden realizar para cambiar la data del context
   const setToken = function (token: string) {
-    localStorage?.setItem("token", token);
+    if (typeof localStorage !== "undefined")
+      localStorage?.setItem("token", token);
     dispatch({ type: SET_TOKEN, payload: token });
   };
 
