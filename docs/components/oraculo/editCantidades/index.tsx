@@ -15,7 +15,7 @@ function EditCantidades(props: IEditCantidades) {
     borderWidth = 1,
   } = props;
 
-  let styles = {
+  const styles = {
     leftButton: {
       cursor: "pointer",
       borderRadius: 0,
@@ -25,6 +25,10 @@ function EditCantidades(props: IEditCantidades) {
       borderStyle,
       borderTopLeftRadius: borderRadius,
       borderBottomLeftRadius: borderRadius,
+      width: "23%",
+      fontWeight: "bold",
+      fontSize: "1.2em",
+      flexGrow: 1,
     } as React.CSSProperties,
     RightButton: {
       cursor: "pointer",
@@ -35,6 +39,10 @@ function EditCantidades(props: IEditCantidades) {
       borderStyle,
       borderTopRightRadius: borderRadius,
       borderBottomRightRadius: borderRadius,
+      width: "23%",
+      fontWeight: "bold",
+      fontSize: "1em",
+      flexGrow: 1,
     } as React.CSSProperties,
     input: {
       borderLeft: "0px",
@@ -44,7 +52,20 @@ function EditCantidades(props: IEditCantidades) {
       borderRadius: 0,
       borderColor,
       borderStyle,
+      width: "47%",
+      textAlign: "center",
+      fontSize: "0.8em",
+      flexGrow: 2,
     } as React.CSSProperties,
+  };
+
+  const styleContainer: React.CSSProperties = {
+    width: "100%",
+    height: "99%",
+    margin: "0px auto",
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "space-around",
   };
 
   const [inputEdit, setInputEdit] = React.useState<number | string>(value);
@@ -128,9 +149,8 @@ function EditCantidades(props: IEditCantidades) {
   }, [suma]);
 
   return (
-    <div className="w-100 h-99 m-auto flex-row space-around">
+    <div style={styleContainer}>
       <button
-        className="w-23 bold font-size-12 grow-1"
         style={styles.leftButton}
         onClick={() => {
           setCounter(counter + 1);
@@ -143,7 +163,6 @@ function EditCantidades(props: IEditCantidades) {
       </button>
       <input
         type="number"
-        className={`w-47 text-center font-size-8 grow-2`}
         style={styles.input}
         value={controlled ? value : inputEdit}
         onChange={(e) => {
@@ -156,7 +175,6 @@ function EditCantidades(props: IEditCantidades) {
         }}
       />
       <button
-        className="w-23 bold font-size-10 grow-1"
         style={styles.RightButton}
         onClick={() => {
           setCounter(counter + 1);

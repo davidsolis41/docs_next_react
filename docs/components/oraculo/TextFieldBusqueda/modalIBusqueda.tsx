@@ -1,32 +1,58 @@
 import React from "react";
 import { IModal } from "./types";
 
-function Modal(props: IModal) {
+function ModalIBusqueda(props: IModal) {
   const {
-    width = "85%",
-    height = " 85%",
+    width = "90%",
+    height = "90%",
     borderRadius = 10,
     backgroundColor = "white",
     pathIconClose = "/close.png",
     overflowY = "hidden",
   } = props;
 
-  let styleContainer = {
+  const styleContainer: React.CSSProperties = {
+    position: "absolute",
     top: 0,
     bottom: 0,
     right: 0,
     left: 0,
-  } as React.CSSProperties;
+    display: "flex",
+    flexFlow: "row wrap",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    justifyItems: "center",
+    overflow: "hidden",
+    height: "100vh",
+    width: "100vw",
+  };
 
-  let styleModal = {
+  const styleModal: React.CSSProperties = {
     width,
     height,
     borderRadius,
     backgroundColor,
     position: "absolute",
-    overflowY,
+    overflowY: "hidden",
+    display: "flex",
+    flexFlow: "row wrap",
+    alignItems: "flex-start",
+    alignContent: "flex-start",
+    justifyContent: "center",
+    justifyItems: "center",
     zIndex: 500,
-  } as React.CSSProperties;
+  };
+
+  const styleContainerModal: React.CSSProperties = {
+    width: "100%",
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "space-around",
+    justifyItems: "space-around",
+    alignContent: "flex-start",
+    alignItems: "flex-start",
+  };
 
   function CerrarModal() {
     let estilosIcono = {
@@ -53,31 +79,24 @@ function Modal(props: IModal) {
 
   return (
     <>
-      <div
-        style={styleContainer}
-        className="flex-row align-center absolute overflow-hidden justify-center h-100vh w-100vw"
-      >
+      <div style={styleContainer}>
         <div
           style={{
             backgroundColor: "rgba(0,0,0,0.65)",
             zIndex: 500,
+            overflow: "hidden",
             height: "100vh",
-            width: "100wv",
+            width: "100vw",
           }}
           onClick={() => props.close()}
         ></div>
-        <div
-          className="flex-row justify-center align-start content-modal zIndex-100"
-          style={styleModal}
-        >
+        <div style={styleModal}>
           <CerrarModal />
-          <section className="flex-row space-around align-start w-100">
-            {props.children}
-          </section>
+          <section style={styleContainerModal}>{props.children}</section>
         </div>
       </div>
     </>
   );
 }
 
-export default Modal;
+export default ModalIBusqueda;

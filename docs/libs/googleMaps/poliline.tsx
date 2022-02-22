@@ -3,11 +3,17 @@ import { Polyline } from "@react-google-maps/api";
 
 export type PolilineProps = {
   path: { lat: number; lng: number }[];
+  key: any;
   color: string;
   editable?: boolean;
 };
 
-function Poliline({ path: patthh, color, editable = false }: PolilineProps) {
+function Poliline({
+  path: patthh,
+  color,
+  editable = false,
+  key,
+}: PolilineProps) {
   const polylineRef = React.useRef(null);
   const listenersRef = React.useRef([]);
   const [path, setPath] = React.useState(patthh);
@@ -48,6 +54,7 @@ function Poliline({ path: patthh, color, editable = false }: PolilineProps) {
 
   return (
     <Polyline
+      key={key}
       ref={polylineRef}
       path={path}
       options={{ editable, strokeColor: color }}

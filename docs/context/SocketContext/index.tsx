@@ -7,7 +7,7 @@ import { io, Socket } from "socket.io-client";
 export const SocketContext: React.Context<any> = React.createContext({});
 
 function SocketState({ children }: { children?: any }) {
-  let {
+  const {
     data: {
       auth: { login, token },
     },

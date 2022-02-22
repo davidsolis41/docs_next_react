@@ -63,7 +63,6 @@ function Form() {
           draggable: true,
           progress: undefined,
         });
-        break;
       }
     }
   }

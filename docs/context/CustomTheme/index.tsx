@@ -24,7 +24,7 @@ export default function CustomTheme(props: Iprops) {
   const fuenteBotones: string = "";
   const fuenteCaption: string = "";
 
-  let typography: TypographyOptions = {
+  const typography: TypographyOptions = {
     htmlFontSize: 16,
     fontFamily: "Roboto, san-serif",
     fontSize: 14,

@@ -15,7 +15,7 @@ import { url } from "../../utils/url";
 //funcion que proveera el estado a nuestra aplicacion
 export default function GlobalState({ children }: any): JSX.Element {
   //declaramos la estructura inicial de nuestro contexto
-  let initialState: IData = {
+  const initialState: IData = {
     auth: {
       token: "",
       login: false,
@@ -36,13 +36,13 @@ export default function GlobalState({ children }: any): JSX.Element {
   );
 
   //acciones que se pueden realizar para cambiar la data del context
-  let setToken = function (token: string) {
+  const setToken = function (token: string) {
     localStorage?.setItem("token", token);
     dispatch({ type: SET_TOKEN, payload: token });
   };
 
-  let router = useRouter();
-  let getLogin = async function () {
+  const router = useRouter();
+  const getLogin = async function () {
     if (typeof localStorage !== "undefined") {
       let token: string = (localStorage?.getItem("token") as string) || "";
 
@@ -65,11 +65,11 @@ export default function GlobalState({ children }: any): JSX.Element {
     }
   };
 
-  let setFiltroActivo = function (filtroAplicado: string) {
+  const setFiltroActivo = function (filtroAplicado: string) {
     dispatch({ type: SET_FILTRO, payload: filtroAplicado });
   };
 
-  let toggleTheme = function (tema: "light" | "dark") {
+  const toggleTheme = function (tema: "light" | "dark") {
     dispatch({ type: TOGGLE_THEME, payload: tema });
   };
 
@@ -92,7 +92,7 @@ export default function GlobalState({ children }: any): JSX.Element {
   }, []);
 
   //objeto con todo lo que va a poder usar el provider
-  let dataProvider: IGlobalState = {
+  const dataProvider: IGlobalState = {
     data: state as IData,
     setToken,
     getLogin,

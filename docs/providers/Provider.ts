@@ -106,7 +106,7 @@ class Provider {
 
   private async compStatus(peticion: Response): Promise<ResProv> {
     let { status } = peticion;
-    let respuesta: any;
+    let respuesta: ResProv;
     try {
       respuesta = { status, data: await peticion.clone().json() };
     } catch (e) {

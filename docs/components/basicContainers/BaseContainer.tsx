@@ -21,7 +21,7 @@ function BaseContainer(props: IBaseContainer) {
   const bgLight = "#ffffff";
   const bgDark = "#000000";
 
-  let estilos = {
+  const estilos: React.CSSProperties = {
     ...props.style,
     borderRadius: 0,
     display: "flex",
@@ -35,7 +35,7 @@ function BaseContainer(props: IBaseContainer) {
     justifySelf: props.justifySelf,
     alignSelf: props.alignSelf,
     flexBasis: props.basis,
-  } as React.CSSProperties;
+  };
 
   return (
     <Paper

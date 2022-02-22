@@ -1,5 +1,5 @@
-import styled from "@mui/material/styles/styled";
 import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
 
 const componente = styled(TextField)(
   ({ theme }) => `
