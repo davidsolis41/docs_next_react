@@ -76,32 +76,23 @@ class Provider {
     return await this.compStatus(peticionPatch);
   }
 
-  private getHeaders(locals: any, user: any): any {
+  private getHeaders(locals: any, user?: any): any {
     if (user) {
-      let headders = locals;
-      let headers = user;
-      let headderskeys = Object.keys(headders);
-      let headersKeys = Object.keys(headers);
-      let repetidos: string[] = [];
+      const localHeaderkeys: string[] = Object.keys(locals);
+      const userHeaderKeys: string[] = Object.keys(user);
+      let keyBusqueda: string | undefined;
 
-      headersKeys.map((propiedad) =>
-        headderskeys.map((key) => {
-          if (
-            String(propiedad).trim().toLowerCase() ===
-            String(key).trim().toLowerCase()
-          ) {
-            repetidos.push(String(key));
-          }
-        })
-      );
+      userHeaderKeys.forEach((headUser) => {
+        keyBusqueda = localHeaderkeys.find(
+          (headLocal) =>
+            String(headLocal).trim().toLowerCase() ===
+            String(headUser).trim().toLowerCase()
+        );
+        if (keyBusqueda) delete locals[keyBusqueda];
+      });
 
-      if (repetidos.length > 0)
-        repetidos.map((key: string) => delete headders[key]);
-
-      return { ...headders, ...headers };
-    } else {
-      return locals;
-    }
+      return { ...locals, ...user };
+    } else return locals;
   }
 
   private async compStatus(peticion: Response): Promise<ResProv> {
