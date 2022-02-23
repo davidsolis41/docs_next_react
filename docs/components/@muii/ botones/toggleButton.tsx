@@ -2,6 +2,7 @@ import React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { styled } from "@mui/material/styles";
+import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 
 export default function ToggleButtonn() {
   const [opcionSeleccionada, setOpcionSeleccionada] = React.useState("");
@@ -31,8 +32,12 @@ export default function ToggleButtonn() {
         Android
       </ToggleButton>
 
-      <ToggleButton value="ios" aria-label="ayuda a ceguera" disabled>
+      <ToggleButton value="ios" aria-label="ayuda a ceguera">
         IOS
+      </ToggleButton>
+
+      <ToggleButton value="left" aria-label="ayuda a ceguera">
+        <FormatAlignLeftIcon />
       </ToggleButton>
     </ToggleButtonGroup>
   );

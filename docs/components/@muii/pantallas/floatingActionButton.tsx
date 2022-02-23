@@ -2,12 +2,14 @@ import React from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
-function floatingActionButton() {
+export default function FloatingActionButtonn() {
   return (
-    <Fab color="primary" size="medium" aria-label="Texto de ayuda a ceguera">
-      <AddIcon />
+    <Fab
+      aria-label="Texto de ayuda para ceguera"
+      color="primary"
+      size="medium" // small | medium | large
+    >
+      <AddIcon sx={{}} />
     </Fab>
   );
 }
-
-export default floatingActionButton;

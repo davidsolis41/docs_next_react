@@ -6,42 +6,51 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function radio() {
+  const [generoSeleccionado, setGeneroSeleccionado] = React.useState("");
   return (
     <RadioGroup
-      row
-      value={"Hombre"}
-      onChange={({ target: { value } }) => {}}
-      aria-label="Texto de ayuda para ceguera"
+      aria-labelledby="Texto de ayuda para ceguera"
+      value={generoSeleccionado}
+      onChange={({ target: { value } }) => setGeneroSeleccionado(value)}
+      row // indicar que se vera en horizantal
     >
       <FormControlLabel
         label="Mujer"
         value="Mujer"
+        labelPlacement="end" // start | end | bottom | top
         control={
           <Radio
+            aria-label="texto de ayuda para ceguera"
+            name=""
             color="warning"
+            size="medium" // small | medium
+            icon={<FavoriteBorderIcon sx={{ fontSize: 25 }} />} //OPCIONAL cuando queremos cambiar el icono
+            checkedIcon={<FavoriteIcon sx={{ fontSize: 25, color: "red" }} />} //OPCIONAL cuando queremos cambiar el icono
             sx={{
               "& .MuiSvgIcon-root": {
                 fontSize: 25,
               },
             }}
-            icon={<FavoriteBorderIcon sx={{ fontSize: 25 }} />} //OPCIONAL cuando queremos cambiar el icono
-            checkedIcon={<FavoriteIcon sx={{ fontSize: 25, color: "red" }} />} //OPCIONAL cuando queremos cambiar el icono
           />
         }
       />
       <FormControlLabel
         label="Hombre"
         value="Hombre"
+        labelPlacement="end" // start | end | bottom | top
         control={
           <Radio
+            aria-label="texto de ayuda para ceguera"
+            name=""
             color="success"
+            size="medium" // small | medium
+            icon={<FavoriteBorderIcon sx={{ fontSize: 25 }} />} //OPCIONAL cuando queremos cambiar el icono
+            checkedIcon={<FavoriteIcon sx={{ fontSize: 25, color: "red" }} />} //OPCIONAL cuando queremos cambiar el icono
             sx={{
               "& .MuiSvgIcon-root": {
                 fontSize: 25,
               },
             }}
-            icon={<FavoriteBorderIcon sx={{ fontSize: 25 }} />} //OPCIONAL cuando queremos cambiar el icono
-            checkedIcon={<FavoriteIcon sx={{ fontSize: 25, color: "red" }} />} //OPCIONAL cuando queremos cambiar el icono
           />
         }
       />
