@@ -15,7 +15,15 @@ export default function ToggleButtonn() {
       exclusive // si solo se puede seleccionar uno
       //si es de seleccion multiple el valor es un string[]
     >
-      <ToggleButton value="web" aria-label="ayuda a ceguera">
+      <ToggleButton
+        aria-label="ayuda a ceguera"
+        name="web"
+        value="web"
+        color="primary" // OPCIONAL por defecto ya trae color gris
+        size="large" // small | medium | large
+        disabled
+        sx={{}}
+      >
         Web
       </ToggleButton>
 
@@ -24,7 +32,7 @@ export default function ToggleButtonn() {
       </ToggleButton>
 
       <ToggleButton value="ios" aria-label="ayuda a ceguera" disabled>
-        iOS
+        IOS
       </ToggleButton>
     </ToggleButtonGroup>
   );
