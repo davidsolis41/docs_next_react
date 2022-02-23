@@ -2,16 +2,17 @@ import React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
-function buttonGroup() {
+export default function ButtonGroupp() {
   return (
     <ButtonGroup
-      orientation="horizontal"
-      variant="outlined" // "contained" | "text"
-      size="medium"
+      aria-label="texto de ayuda a ceguera"
+      orientation="horizontal" // horizontal | vertical
+      variant="outlined" // outlined | contained | text
+      size="large" // small | medium | large
       color="primary"
       disableElevation={false}
-      aria-label="texto de ayuda a ceguera"
       className=""
+      tabIndex={1}
       sx={{}}
     >
       <Button>Uno</Button>
@@ -20,5 +21,3 @@ function buttonGroup() {
     </ButtonGroup>
   );
 }
-
-export default buttonGroup;

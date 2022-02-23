@@ -2,7 +2,7 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-function iconButton() {
+export default function IconButtonn() {
   return (
     <IconButton
       aria-label="texto de ayuda a ceguera"
@@ -15,9 +15,7 @@ function iconButton() {
       sx={{}}
       onClick={() => {}}
     >
-      <MenuIcon sx={{ fontSize: "2rem", color: "white" }} />
+      <MenuIcon sx={{ fontSize: "2rem", color: "black" }} />
     </IconButton>
   );
 }
-
-export default IconButton;

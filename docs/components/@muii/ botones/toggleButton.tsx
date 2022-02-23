@@ -1,15 +1,19 @@
 import React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { styled } from "@mui/material/styles";
 
-function toggleButton() {
+export default function ToggleButtonn() {
+  const [opcionSeleccionada, setOpcionSeleccionada] = React.useState("");
   return (
     <ToggleButtonGroup
-      value={"web"}
-      onChange={(e, newValue) => {}}
-      size="medium" // "small" "large"
+      value={opcionSeleccionada}
+      onChange={(e, newValue) => setOpcionSeleccionada(newValue)}
+      size="medium" // small | medium | large
       color="primary" // si se quiere agregar color a los textos y bordes
-      exclusive // poner si solo se puede seleccionar uno
+      orientation="horizontal" // vertical | horizontal
+      exclusive // si solo se puede seleccionar uno
+      //si es de seleccion multiple el valor es un string[]
     >
       <ToggleButton value="web" aria-label="ayuda a ceguera">
         Web
@@ -26,4 +30,18 @@ function toggleButton() {
   );
 }
 
-export default toggleButton;
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+  "& .MuiToggleButtonGroup-grouped": {
+    margin: theme.spacing(0.5),
+    border: 0,
+    "&.Mui-disabled": {
+      border: 0,
+    },
+    "&:not(:first-of-type)": {
+      borderRadius: theme.shape.borderRadius,
+    },
+    "&:first-of-type": {
+      borderRadius: theme.shape.borderRadius,
+    },
+  },
+}));

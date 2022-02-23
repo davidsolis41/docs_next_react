@@ -1,13 +1,15 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 import { styled } from "@mui/material/styles";
-import purple from "@mui/material/colors/purple";
 
-export default function Buttonn() {
+export default function LoadingButtonn() {
+  const [cargando, setCargando] = React.useState(false);
   return (
-    <Button
+    <LoadingButton
+      loading={cargando} //INIDCADOR DE CARGA
+      loadingPosition="start" // start | center | end
       aria-label="texto de ayuda a ceguera"
       name=""
       variant="outlined" // outlined | contained | text
@@ -24,15 +26,15 @@ export default function Buttonn() {
       sx={{}}
       onClick={() => {}}
     >
-      Contained
-    </Button>
+      Enviar
+    </LoadingButton>
   );
 }
 
-const CustomButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
+const CustomLoadingButton = styled(LoadingButton)(({ theme }) => ({
+  color: theme.palette.getContrastText("black"),
+  backgroundColor: "black",
   "&:hover": {
-    backgroundColor: purple[700],
+    backgroundColor: "grey",
   },
 }));
