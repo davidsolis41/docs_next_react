@@ -5,6 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function TextFieldd() {
+  const [valorInput, setValorInput] = React.useState("");
   return (
     <TextField
       aria-label="ayuda a ceguera"
@@ -21,8 +22,8 @@ export default function TextFieldd() {
       fullWidth
       required
       error
-      value={""}
-      onChange={(e) => {}}
+      value={valorInput}
+      onChange={({ target: { value } }) => setValorInput(value)}
       InputLabelProps={{
         shrink: true, // el nombre siempre estara arriba
       }}
@@ -61,5 +62,8 @@ const StyledOutlinedTextField = styled(TextField)(
         margin-right: 5px;
         font-size: 0.75rem;
     }
+    '&:hover fieldset': {
+      borderColor: "",
+    },
 `
 );

@@ -5,7 +5,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function radio() {
+export default function Radioo() {
   const [generoSeleccionado, setGeneroSeleccionado] = React.useState("");
   return (
     <RadioGroup
@@ -57,5 +57,3 @@ function radio() {
     </RadioGroup>
   );
 }
-
-export default radio;

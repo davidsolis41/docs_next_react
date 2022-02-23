@@ -17,7 +17,7 @@ export default function Ratingg() {
       className=""
       value={calificacion}
       onChange={(event, newValue) => setCalificacion(Number(newValue))}
-      icon={<FavoriteIcon fontSize="inherit" />} //OPCIONAL cuando queremos cambiar el icono
+      icon={<FavoriteIcon fontSize="inherit" color="primary" />} //OPCIONAL cuando queremos cambiar el icono
       emptyIcon={
         <FavoriteBorderIcon style={{ opacity: 0.55 }} fontSize="inherit" />
       }
