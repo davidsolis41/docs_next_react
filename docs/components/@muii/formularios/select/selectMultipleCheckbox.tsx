@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FilledInput from "@mui/material/FilledInput";
+import Input from "@mui/material/Input";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 
@@ -34,7 +35,7 @@ export default function SelectMultipleCheckbox() {
               : value
           )
         }
-        input={<OutlinedInput label="Paises" />} // OutlinedInput | FilledInput
+        input={<OutlinedInput label="Paises" />} // OutlinedInput | FilledInput | Input
         renderValue={(selected) =>
           selected
             .map((i) => paises.find((el) => el.id === i)?.nombre)
