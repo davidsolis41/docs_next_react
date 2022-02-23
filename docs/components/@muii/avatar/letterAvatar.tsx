@@ -4,7 +4,8 @@ import Avatar from "@mui/material/Avatar";
 function letterAvatar() {
   return (
     <Avatar
-      variant="circular" // "square" "rounded"
+      aria-label="texto de ayuda para ceguera"
+      variant="circular" // circular | square | rounded
       sx={{ bgcolor: "blue", width: 50, height: 50 }}
     >
       DS

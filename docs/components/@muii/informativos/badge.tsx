@@ -1,8 +1,11 @@
 import React from "react";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
+import { styled } from "@mui/material/styles";
 
-function badge() {
+export default function Badgee() {
+  const [countNofication, setCountNofication] = React.useState(1);
+
   function notificationsLabel(count: number) {
     if (count === 0) {
       return "No hay notificaciones";
@@ -15,20 +18,29 @@ function badge() {
 
   return (
     <Badge
-      badgeContent={1}
+      badgeContent={countNofication} // tambien pueden ser componentes o texto
       max={99}
+      overlap="circular" // circular | rectangular
+      variant="standard" // standard | dot
       color="primary"
-      overlap="circular" // "rectangular"
-      variant="standard" // "dot"
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: "top", // top | bottom
+        horizontal: "right", // left | right
       }}
-      aria-label={notificationsLabel(1)}
+      aria-label={notificationsLabel(countNofication)}
+      invisible={countNofication === 0} // para ocultar el bandge
+      showZero // para mostrarlo cuando es cero
     >
       <MailIcon />
     </Badge>
   );
 }
 
-export default badge;
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));

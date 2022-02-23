@@ -5,9 +5,9 @@ function dividerWhitText() {
   return (
     <Divider
       component="li"
-      textAlign="left" // "right" "center"
-      variant="fullWidth" // "inset" al inicio no) "middle" en las orrilla no
-      orientation="horizontal"
+      textAlign="center" // left | right | center
+      variant="fullWidth" // fullWidth (en todo tiene)| inset (al inicio no tiene) | middle (en las orrilla no)
+      orientation="horizontal" // horizontal | vertical
       flexItem // solo cuando es vertical se usa esta propiedad
     >
       ESTE ES EL DIVIDER

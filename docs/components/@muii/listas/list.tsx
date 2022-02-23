@@ -15,6 +15,7 @@ import FolderIcon from "@mui/icons-material/Folder";
 function list() {
   return (
     <List
+      aria-labelledby="texto de ayuda para ceguera"
       component="nav"
       className=""
       sx={{ width: "100%", bgcolor: "background.paper" }}
@@ -25,6 +26,7 @@ function list() {
       }
     >
       <ListItem
+        alignItems="flex-start" // flex-start | center
         secondaryAction={
           // para indicar el icono de la dereccha (final)
           <IconButton edge="end">

@@ -17,6 +17,17 @@ const BadgeOnline = styled(Badge)(({ theme }) => ({
       borderRadius: "50%",
       border: "1px solid currentColor",
       content: '""',
+      animation: "ripple 1.2s infinite ease-in-out",
+    },
+  },
+  "@keyframes ripple": {
+    "0%": {
+      transform: "scale(.8)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(2.4)",
+      opacity: 0,
     },
   },
 }));
