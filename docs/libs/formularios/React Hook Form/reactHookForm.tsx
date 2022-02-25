@@ -1,14 +1,15 @@
 import React from "react";
+import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { ToastContainer } from "react-toastify/dist/components/ToastContainer";
-import { toast } from "react-toastify/dist/core/toast";
+import { ToastContainer, toast } from "react-toastify/dist";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import TextFormField from "./textFormField";
 import Switch from "@mui/material/Switch";
 import type FormValue from "./typesForm";
+import "react-toastify/dist/ReactToastify.css";
+import Provider from "../../../providers/Provider";
 
 const validationSchema = yup.object({
   email: yup
@@ -36,7 +37,7 @@ function Form() {
   });
 
   async function onSubmit(values: FormValue) {
-    let peticion = await fetch(``, { body: JSON.stringify(values) });
+    let peticion = await Provider.post(``, {}, values);
 
     if (peticion.status == 200) {
       console.log("peticion exitosa");
@@ -52,7 +53,7 @@ function Form() {
     const keysErrors: string[] = Object.keys(errs);
     for (let i = 0; i < keysErrors.length; i++) {
       if (errs[keysErrors[i]]) {
-        return toast.error(errs[keysErrors[i]], {
+        return toast.error(errs[keysErrors[i]].message, {
           // notificacion al usuario
           theme: "colored",
           position: "top-right",
