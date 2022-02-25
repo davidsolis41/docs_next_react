@@ -27,6 +27,7 @@ function Form() {
     formState: { touchedFields: touch, errors, isSubmitting },
     setValue,
     setError,
+    clearErrors,
     reset,
   } = useForm<FormValue>({
     defaultValues: {
@@ -84,20 +85,24 @@ function Form() {
         pauseOnHover
       />
       <div>
+        <TextField
+          {...register("email")}
+          label="Email"
+          error={Boolean(errors.email)}
+          helperText={errors.email ? errors.email.message : undefined}
+          value={watch("email")}
+          onChange={({ target: { value } }) => {
+            clearErrors("email");
+            if (value.length > 10) return;
+            setValue("email", value);
+          }}
+        />
+
         <TextFormField
           name="email"
           label="Email"
           control={control}
           helperText="Ingresa tu email"
-        />
-
-        <TextField
-          {...register("email")}
-          label="Email"
-          error={touch.email && Boolean(errors.email)}
-          helperText={
-            touch.email && errors.email ? errors.email.message : undefined
-          }
         />
 
         <Controller

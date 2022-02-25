@@ -41,7 +41,10 @@ const TextFormField = (props: TextFieldProps & PropsTexFormField) => (
         {...props}
         {...field}
         error={invalid}
-        helperText={isTouched && error ? error.message : props.helperText}
+        helperText={error ? error.message : props.helperText || undefined}
+        onChange={(e) => {
+          field.onChange(e);
+        }}
       />
     )}
   />
