@@ -7,6 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { styled } from "@mui/material/styles";
 
 const SlideTransition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -30,6 +31,7 @@ export default function Dialogg() {
     <Dialog
       open={open}
       onClose={() => setOpen(false)}
+      scroll="paper" // paper (solo el DialogContent tiene scroll) | body (todo el dialog hace scroll)
       TransitionComponent={SlideTransition} // OPCIONAL, indica la transicion que hara al ingresar en la pantalla
       fullScreen // OPCIONAL dialogo en pantalla completa
       maxWidth="xs" // xs  | sm | md | lg | xl (OPCIONAL tamaño maximo del modal)
@@ -69,3 +71,12 @@ export default function Dialogg() {
     </Dialog>
   );
 }
+
+const CustomDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: theme.spacing(2),
+  },
+  "& .MuiDialogActions-root": {
+    padding: theme.spacing(1),
+  },
+}));
