@@ -15,6 +15,7 @@ export default function ListItemm() {
           <DeleteIcon />
         </IconButton>
       }
+      disablePadding
     >
       {/* para barras laterales se puede utilizar un ListItemButtom */}
       {/* contenido del item de la lista */}
