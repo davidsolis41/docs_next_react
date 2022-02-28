@@ -1,16 +1,16 @@
 import React from "react";
 import * as yup from "yup";
-import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Controller, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify/dist";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import TextFormField from "./textFormField";
-import Switch from "@mui/material/Switch";
-import type FormValue from "./typesForm";
-import "react-toastify/dist/ReactToastify.css";
-import Provider from "../../../providers/Provider";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import Provider from "../../../providers/Provider";
+import FormValue from "./typesForm";
+import "react-toastify/dist/ReactToastify.css";
 
 const validationSchema = yup.object({
   email: yup
@@ -26,17 +26,19 @@ function Form() {
     handleSubmit,
     control,
     formState: { touchedFields: touch, errors, isSubmitting },
+    getValues,
     setValue,
+    setFocus,
     setError,
     clearErrors,
-    reset,
     trigger,
+    reset,
   } = useForm<FormValue>({
+    resolver: yupResolver(validationSchema),
     defaultValues: {
       email: "",
       mayor: false,
     },
-    resolver: yupResolver(validationSchema),
   });
 
   async function onSubmit(values: FormValue) {
@@ -94,7 +96,7 @@ function Form() {
           helperText={errors.email ? errors.email.message : undefined}
           value={watch("email")}
           onChange={({ target: { value } }) =>
-            value.length <= 10 && setValue("email", value)
+            String(value).length <= 10 && setValue("email", value)
           }
           onBlur={({ target: { value } }) => {
             trigger("email");

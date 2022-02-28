@@ -1,6 +1,4 @@
-type FormValue = {
+export default interface FormValue {
   email: string;
   mayor: boolean;
-};
-
-export default FormValue;
+}
