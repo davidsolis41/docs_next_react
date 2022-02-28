@@ -1,7 +1,7 @@
 import React from "react";
-import { IModal } from "./types";
+import { IModalBusqueda } from "./types";
 
-function ModalIBusqueda(props: IModal) {
+function ModalBusqueda(props: IModalBusqueda) {
   const {
     width = "90%",
     height = "90%",
@@ -99,4 +99,4 @@ function ModalIBusqueda(props: IModal) {
   );
 }
 
-export default ModalIBusqueda;
+export default ModalBusqueda;

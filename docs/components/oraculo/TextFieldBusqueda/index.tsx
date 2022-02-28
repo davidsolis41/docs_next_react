@@ -2,8 +2,8 @@ import React from "react";
 import TextF from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import SearchIcon from "@mui/icons-material/Search";
+import ModalBusqueda from "./modalBusqueda";
 import { styled } from "@mui/material/styles";
-import ModalIBusqueda from "./modalIBusqueda";
 import { TextFieldBusquedaProps } from "./types";
 
 const TextField = styled(TextF)(
@@ -61,11 +61,12 @@ function TextFieldBusqueda(props: TextFieldBusquedaProps) {
       </div>
 
       {props.modal.open && (
-        <ModalIBusqueda
+        <ModalBusqueda
           close={() => props.setModal({ ...props.modal, open: false })}
+          open={props.modal.open}
         >
           {props.children}
-        </ModalIBusqueda>
+        </ModalBusqueda>
       )}
     </>
   );

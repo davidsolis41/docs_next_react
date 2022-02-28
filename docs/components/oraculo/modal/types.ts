@@ -1,4 +1,4 @@
-export interface IModal {
+export default interface IModal {
   close: () => void;
   pathIconClose?: string;
   width?: string;
@@ -6,5 +6,6 @@ export interface IModal {
   borderRadius?: number;
   backgroundColor?: string;
   overflowY?: "hidden" | "scroll";
+  overflowX?: "hidden" | "scroll";
   children?: any;
 }

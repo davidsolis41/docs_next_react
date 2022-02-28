@@ -1,5 +1,5 @@
 import React from "react";
-import { IModal } from "./types";
+import IModal from "./types";
 
 function Modal(props: IModal) {
   const {

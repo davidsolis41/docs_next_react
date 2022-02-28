@@ -75,12 +75,8 @@ export default function Form() {
           });
         }
       }
-    }
+    } else return;
   }
-
-  React.useEffect(() => {
-    if (isValidating) errorValidate();
-  }, [isValidating]);
 
   return (
     <>
@@ -109,7 +105,9 @@ export default function Form() {
             handleBlur(e);
           }}
         />
-        <Button type="submit">Enviar</Button>
+        <Button type="submit" onClick={errorValidate}>
+          Enviar
+        </Button>
         {isSubmitting ? <p>Enviando...</p> : null}
       </form>
     </>

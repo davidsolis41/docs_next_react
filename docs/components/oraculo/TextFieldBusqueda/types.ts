@@ -1,6 +1,6 @@
 import { OutlinedTextFieldProps } from "@mui/material/TextField";
 
-export interface IModal {
+export interface IModalBusqueda {
   close: () => void;
   pathIconClose?: string;
   width?: string;
@@ -8,6 +8,7 @@ export interface IModal {
   borderRadius?: number;
   backgroundColor?: string;
   overflowY?: "hidden" | "scroll";
+  overflowX?: "hidden" | "scroll";
   children?: any;
 }
 
