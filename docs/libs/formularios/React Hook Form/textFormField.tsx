@@ -6,6 +6,7 @@ import styled from "@mui/material/styles/styled";
 export type PropsTexFormField = {
   control: Control<any, object>;
   name: string;
+  max?: number;
 };
 
 const MyTextField = styled(TextF)(
@@ -33,17 +34,23 @@ const TextFormField = (props: TextFieldProps & PropsTexFormField) => (
     control={props.control}
     name={props.name}
     render={({
-      field,
+      field: { value, onChange, onBlur, ref, name },
       fieldState: { invalid, isTouched, isDirty, error },
       formState,
     }) => (
       <MyTextField
         {...props}
-        {...field}
-        error={invalid}
+        name={name}
+        error={Boolean(error)}
         helperText={error ? error.message : props.helperText || undefined}
+        value={value}
         onChange={(e) => {
-          field.onChange(e);
+          if (props.max && String(e.target.value).length > props.max) return;
+          onChange(e);
+        }}
+        onBlur={(e) => {
+          onBlur();
+          if (props.onBlur) props.onBlur(e);
         }}
       />
     )}

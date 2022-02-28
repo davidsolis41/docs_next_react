@@ -10,6 +10,7 @@ import Switch from "@mui/material/Switch";
 import type FormValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 import Provider from "../../../providers/Provider";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 const validationSchema = yup.object({
   email: yup
@@ -29,6 +30,7 @@ function Form() {
     setError,
     clearErrors,
     reset,
+    trigger,
   } = useForm<FormValue>({
     defaultValues: {
       email: "",
@@ -91,17 +93,18 @@ function Form() {
           error={Boolean(errors.email)}
           helperText={errors.email ? errors.email.message : undefined}
           value={watch("email")}
-          onChange={({ target: { value } }) => {
-            clearErrors("email");
-            if (value.length > 10) return;
-            setValue("email", value);
+          onChange={({ target: { value } }) =>
+            value.length <= 10 && setValue("email", value)
+          }
+          onBlur={({ target: { value } }) => {
+            trigger("email");
           }}
         />
 
         <TextFormField
+          control={control}
           name="email"
           label="Email"
-          control={control}
           helperText="Ingresa tu email"
         />
 
@@ -112,7 +115,15 @@ function Form() {
             field: { value, onChange, onBlur, ref, name },
             fieldState: { invalid, isTouched, isDirty, error },
             formState,
-          }) => <Switch name={name} checked={value} onChange={onChange} />}
+          }) => (
+            <FormControlLabel
+              label="Mayor"
+              labelPlacement="bottom" // start | end | bottom | top
+              control={
+                <Switch name={name} checked={value} onChange={onChange} />
+              }
+            />
+          )}
         />
 
         <Button onClick={(e) => handleSubmit(onSubmit, errorValidate)(e)}>

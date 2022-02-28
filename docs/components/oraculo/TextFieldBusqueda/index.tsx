@@ -48,15 +48,17 @@ let estilos = {
 function TextFieldBusqueda(props: TextFieldBusquedaProps) {
   const { textoTooltip = "Buscar", posicionTooltip = "top" } = props;
   return (
-    <div style={estilos.container}>
-      <TextField {...props} variant="outlined" />
-      <Tooltip title={textoTooltip} placement={posicionTooltip} arrow>
-        <SearchIcon
-          color="primary"
-          style={estilos.icono}
-          onClick={() => props.setModal({ ...props.modal, open: true })}
-        />
-      </Tooltip>
+    <>
+      <div style={estilos.container}>
+        <TextField {...props} variant="outlined" />
+        <Tooltip title={textoTooltip} placement={posicionTooltip} arrow>
+          <SearchIcon
+            color="primary"
+            style={estilos.icono}
+            onClick={() => props.setModal({ ...props.modal, open: true })}
+          />
+        </Tooltip>
+      </div>
 
       {props.modal.open && (
         <ModalIBusqueda
@@ -65,7 +67,7 @@ function TextFieldBusqueda(props: TextFieldBusquedaProps) {
           {props.children}
         </ModalIBusqueda>
       )}
-    </div>
+    </>
   );
 }
 

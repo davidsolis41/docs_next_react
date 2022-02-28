@@ -6,6 +6,7 @@ import { toast } from "react-toastify/dist/core/toast";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import formValue from "./typesForm";
+import Provider from "../../../providers/Provider";
 
 function Form(props: FormikProps<formValue>) {
   const {
@@ -85,7 +86,7 @@ async function handleSubmit(
   formikBag: FormikBag<formValue, formValue>
 ) {
   formikBag.setSubmitting(true);
-  let peticion = await fetch(``, { body: JSON.stringify(values) });
+  let peticion = await Provider.post(``, {}, values);
   formikBag.setSubmitting(false);
 
   if (peticion.status == 200) {

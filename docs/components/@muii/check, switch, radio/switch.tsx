@@ -8,7 +8,6 @@ export default function switchh() {
   return (
     <FormControlLabel
       label="Label"
-      value="mycheckbox"
       labelPlacement="bottom" // start | end | bottom | top
       control={
         <Switch
