@@ -24,12 +24,14 @@ function ModalBusqueda(props: IModalBusqueda) {
     flexFlow: "row wrap",
     alignItems: "center",
     justifyContent: "center",
-    overflow: "hidden",
+    overflowX: "hidden",
+    overflowY: "hidden",
   };
   const styleShadow: React.CSSProperties = {
     width: "100%",
     height: "100%",
-    overflow: "hidden",
+    overflowX: "hidden",
+    overflowY: "hidden",
     backgroundColor: "rgba(0,0,0,0.65)",
     zIndex: 500,
   };
@@ -40,7 +42,8 @@ function ModalBusqueda(props: IModalBusqueda) {
     height,
     borderRadius,
     backgroundColor,
-    overflow: "hidden",
+    overflowX: "hidden",
+    overflowY: "hidden",
     position: "absolute",
     zIndex: 500,
   };
