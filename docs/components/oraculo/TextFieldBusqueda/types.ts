@@ -1,4 +1,4 @@
-import { OutlinedTextFieldProps } from "@mui/material/TextField";
+import { TextFieldProps } from "@mui/material/TextField";
 
 export interface IModalBusqueda {
   close: () => void;
@@ -12,10 +12,10 @@ export interface IModalBusqueda {
   children?: any;
 }
 
-export interface TextFieldBusquedaProps extends OutlinedTextFieldProps {
+export type TextFieldBusquedaProps = {
   modal: any;
   setModal: React.Dispatch<React.SetStateAction<any>>;
-  children?: any;
   textoTooltip?: string;
   posicionTooltip?: "top" | "right" | "bottom" | "left";
-}
+  children?: any;
+} & TextFieldProps;

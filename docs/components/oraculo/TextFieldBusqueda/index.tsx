@@ -6,8 +6,9 @@ import ModalBusqueda from "./modalBusqueda";
 import { styled } from "@mui/material/styles";
 import { TextFieldBusquedaProps } from "./types";
 
-const TextField = styled(TextF)(
-  ({ theme, helperText }) => `
+const TextField = styled(TextF)(({ theme, helperText, variant }) =>
+  variant === "outlined" || !variant
+    ? `
     height: ${helperText ? "53px" : "35px"};
     input{
         padding: 5px;
@@ -27,8 +28,8 @@ const TextField = styled(TextF)(
         margin-left: 5px;
         margin-right: 5px;
         font-size: 0.75rem;
-    }
-`
+    }`
+    : ``
 );
 
 let estilos = {
@@ -36,21 +37,21 @@ let estilos = {
     display: "flex",
     flexFlow: "row wrap",
     justifyItems: "center",
-    alignItems: "start",
+    alignItems: "center",
   } as React.CSSProperties,
   icono: {
     marginTop: 5,
     marginLeft: 5,
     cursor: "pointer",
-  },
+  } as React.CSSProperties,
 };
 
 function TextFieldBusqueda(props: TextFieldBusquedaProps) {
-  const { textoTooltip = "Buscar", posicionTooltip = "top" } = props;
+  const { textoTooltip = "Buscar", posicionTooltip = "top", className } = props;
   return (
     <>
-      <div style={estilos.container}>
-        <TextField {...props} variant="outlined" />
+      <div style={estilos.container} className={className}>
+        <TextField {...{ ...props, className: "" }} />
         <Tooltip title={textoTooltip} placement={posicionTooltip} arrow>
           <SearchIcon
             color="primary"
