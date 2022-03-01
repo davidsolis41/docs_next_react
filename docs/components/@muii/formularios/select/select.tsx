@@ -16,6 +16,7 @@ export default function Selectt() {
   return (
     <FormControl
       variant="standard" // outlined | filled | standard
+      size="small" // small | medium
       sx={{ m: 1, minWidth: 120 }}
       required
       error

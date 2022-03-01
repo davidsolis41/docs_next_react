@@ -19,7 +19,13 @@ export default function SelectMultiple() {
     number[]
   >([]);
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} required error disabled>
+    <FormControl
+      sx={{ m: 1, minWidth: 120 }}
+      size="small" // small | medium
+      required
+      error
+      disabled
+    >
       <InputLabel id="label-seleccion-paises">Paises</InputLabel>
       <Select
         labelId="label-seleccion-paises"

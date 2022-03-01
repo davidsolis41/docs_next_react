@@ -12,11 +12,11 @@ export default function TextFieldd() {
       label=""
       name=""
       variant="outlined" // outlined | filled | standard
-      type="text" // todos los tipos de HTML
-      helperText="texto de ayuda"
       size="small" // small | medium
+      type="text" // todos los tipos de HTML
       margin="none" // none | dense | normal * margen arriba y abajo
       color="primary"
+      helperText="texto de ayuda"
       multiline // cuando queremos que sea multilinea
       maxRows={2} // indica las lineas que se puede expandir
       fullWidth

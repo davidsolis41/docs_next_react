@@ -101,9 +101,6 @@ export default function Form() {
           onChange={(e) =>
             String(e.target.value).length <= 10 && handleChange(e)
           }
-          onBlur={(e) => {
-            handleBlur(e);
-          }}
         />
         <Button type="submit" onClick={errorValidate}>
           Enviar
