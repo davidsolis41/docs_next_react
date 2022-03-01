@@ -6,16 +6,16 @@ import ModalBusqueda from "./modalBusqueda";
 import { styled } from "@mui/material/styles";
 import { TextFieldBusquedaProps } from "./types";
 
-const TextField = styled(TextF)(({ theme, helperText, variant }) =>
+const TextField = styled(TextF)(({ theme, helperText, variant, size }) =>
   variant === "outlined" || !variant
     ? `
-    height: ${helperText ? "53px" : "30px"};
+    height: ${helperText ? "55px" : "30px"};
     input{
       padding: 5px;
       padding-left: 8px;
     }
     label {
-      margin-top: -4px;
+      margin-top: ${size === "small" ? "-4px" : "-10px"};
     }
     .MuiInputLabel-outlined .Mui-focused{
       margin-top: 0px;
