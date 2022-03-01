@@ -9,25 +9,25 @@ import { TextFieldBusquedaProps } from "./types";
 const TextField = styled(TextF)(({ theme, helperText, variant }) =>
   variant === "outlined" || !variant
     ? `
-    height: ${helperText ? "53px" : "35px"};
+    height: ${helperText ? "53px" : "30px"};
     input{
-        padding: 5px;
-        padding-left: 8px;
+      padding: 5px;
+      padding-left: 8px;
     }
     label {
-        margin-top: -10px;
+      margin-top: -4px;
     }
     .MuiInputLabel-outlined .Mui-focused{
-        margin-top: 0px;
-        margin-bottom: 3px;
+      margin-top: 0px;
+      margin-bottom: 3px;
     }
     .MuiInputLabel-shrink {
-        margin-top: 0px;
+      margin-top: 0px;
     }
     .MuiFormHelperText-root{
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 0.75rem;
+      margin-left: 5px;
+      margin-right: 5px;
+      font-size: 0.75rem;
     }`
     : ``
 );
