@@ -3,15 +3,19 @@ import IModal from "./types";
 
 function Modal(props: IModal) {
   const {
-    width = "85%",
-    height = " 85%",
+    width = "90%",
+    height = "90%",
     borderRadius = 10,
     backgroundColor = "white",
     pathIconClose = "/close.png",
     overflowY = "hidden",
+    overflowX = "hidden",
   } = props;
 
   const styleContainer: React.CSSProperties = {
+    width: "100vw",
+    height: "100vh",
+    position: "absolute",
     top: 0,
     bottom: 0,
     right: 0,
@@ -19,26 +23,25 @@ function Modal(props: IModal) {
     display: "flex",
     flexFlow: "row wrap",
     alignItems: "center",
-    position: "absolute",
-    overflow: "hidden",
     justifyContent: "center",
-    height: "100vh",
-    width: "100vw",
+    overflow: "hidden",
   };
-
+  const styleShadow: React.CSSProperties = {
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
+    backgroundColor: "rgba(0,0,0,0.65)",
+    zIndex: 500,
+  };
   const styleModal: React.CSSProperties = {
+    display: "flex",
+    flexFlow: "column wrap",
     width,
     height,
     borderRadius,
     backgroundColor,
+    overflow: "hidden",
     position: "absolute",
-    overflowY: "hidden",
-    display: "flex",
-    flexFlow: "row wrap",
-    alignItems: "flex-start",
-    alignContent: "flex-start",
-    justifyContent: "center",
-    justifyItems: "center",
     zIndex: 500,
   };
 
@@ -46,31 +49,38 @@ function Modal(props: IModal) {
     width: "100%",
     display: "flex",
     flexFlow: "row wrap",
+    flexGrow: 1,
     justifyContent: "space-around",
     justifyItems: "space-around",
     alignContent: "flex-start",
     alignItems: "flex-start",
+    overflowY,
+    overflowX,
   };
 
   function CerrarModal() {
-    let estilosIcono = {
+    const estilosIcono: React.CSSProperties = {
       backgroundImage: `url(${pathIconClose})`,
       width: "18px",
+      height: "100%",
       backgroundSize: "100% 100%",
       backgroundRepeat: "no-repeat",
       cursor: "pointer",
-    } as React.CSSProperties;
+    };
+    const estilosBar: React.CSSProperties = {
+      width: "100%",
+      height: "18px",
+      display: "flex",
+      flexFlow: "row wrap",
+      justifyContent: "flex-end",
+      paddingTop: "4px",
+      paddingBottom: "4px",
+    };
 
     return (
-      <div
-        className="w-100 flex-row justify-end mt-5 mr-10"
-        style={{ height: "18px" }}
-      >
-        <div
-          style={estilosIcono}
-          className="h-100 background-image"
-          onClick={() => props.close()}
-        ></div>
+      <div style={estilosBar}>
+        <div style={estilosIcono} onClick={() => props.close()}></div>
+        <div style={{ width: "8px" }}></div>
       </div>
     );
   }
@@ -78,15 +88,7 @@ function Modal(props: IModal) {
   return (
     <>
       <div style={styleContainer}>
-        <div
-          style={{
-            backgroundColor: "rgba(0,0,0,0.65)",
-            zIndex: 500,
-            height: "100vh",
-            width: "100wv",
-          }}
-          onClick={() => props.close()}
-        ></div>
+        <div style={styleShadow} onClick={() => props.close()}></div>
         <div style={styleModal}>
           <CerrarModal />
           <section style={styleContainerModal}>{props.children}</section>

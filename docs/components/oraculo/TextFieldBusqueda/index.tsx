@@ -63,7 +63,6 @@ function TextFieldBusqueda(props: TextFieldBusquedaProps) {
       {props.modal.open && (
         <ModalBusqueda
           close={() => props.setModal({ ...props.modal, open: false })}
-          open={props.modal.open}
         >
           {props.children}
         </ModalBusqueda>
