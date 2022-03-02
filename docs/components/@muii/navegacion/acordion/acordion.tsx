@@ -1,16 +1,18 @@
 import React from "react";
-import Accordion from "@mui/material/Accordion";
+import Accordion, { AccordionProps } from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { styled } from "@mui/material/styles";
 
-function acordion() {
+export default function Acordionn() {
   const [expanded, setExpanded] = React.useState(""); // OPCIONAL cuando se controla la expansion
   return (
     <div>
       <Accordion
         expanded={expanded === "panel1"} // OPCIONAL para controlar la expansion
         onChange={(e) => setExpanded("panel1")} // OPCIONAL para controlar la expansion
+        // disabled // OPCIONAL para deshabilitar el acordion
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -45,4 +47,14 @@ function acordion() {
   );
 }
 
-export default acordion;
+const CustomAccordion = styled((props: AccordionProps) => (
+  <Accordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+}));

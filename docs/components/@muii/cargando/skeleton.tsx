@@ -20,4 +20,4 @@ export default function Skeletonn() {
 
 // O Podemos asignarle un hijo a skeleton
 
-// <Skeleton variant="circular"> <Avatar /> </Skeleton>
+// <Skeleton variant="circular"> <Avatar/> </Skeleton>
