@@ -1,17 +1,29 @@
-import Gridd from "@mui/material/Grid";
+import Grid from "@mui/material/Grid";
 import React from "react";
 
-function grid() {
+export default function Gridd() {
   return (
-    <Gridd container spacing={2} columns={12}>
-      <Gridd item xs={6}>
+    <Grid
+      container
+      columns={{ xs: 4, md: 12 }}
+      direction={{ xs: "column", sm: "row" }} // row | column | row-reverse | column-reverse
+      justifyContent="center" // flex-start | center | flex-end | space-between | space-around | space-evenly
+      alignItems="center" // flex-start | center | flex-end | stretch | baseline
+      spacing={{ xs: 3, sm: 6, md: 9 }} // aplica espaciado GENERAL
+      rowSpacing={{ xs: 2, sm: 4, md: 6 }} // OPCIONAL define el espacio horizontal
+      columnSpacing={{ xs: 1, sm: 2, md: 3 }} // OPCIONAL define el espacio vertical
+    >
+      <Grid
+        item
+        xs={6}
+        md={8} /* xs, sm, md, lg y xl */
+        zeroMinWidth // cuando el child tiene propidad noWrap ej. <Tipography noWrap />
+      >
         <p>xs=6</p>
-      </Gridd>
-      <Gridd item xs={6}>
+      </Grid>
+      <Grid item xs={6} md={4} /* xs, sm, md, lg y xl */>
         <p>xs=6</p>
-      </Gridd>
-    </Gridd>
+      </Grid>
+    </Grid>
   );
 }
-
-export default grid;

@@ -1,7 +1,7 @@
 import React from "react";
 import Paperr from "@mui/material/Paper";
 
-function Paper() {
+export default function Paper() {
   return (
     <Paperr
       variant="elevation"
@@ -15,5 +15,3 @@ function Paper() {
     ></Paperr>
   );
 }
-
-export default Paper;
