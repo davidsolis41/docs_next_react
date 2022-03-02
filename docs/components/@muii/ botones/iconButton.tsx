@@ -12,6 +12,7 @@ export default function IconButtonn() {
       className=""
       disabled={false}
       tabIndex={1}
+      edge="start" // OPCIONAL para eliminar el margin de un lado
       sx={{}}
       onClick={() => {}}
     >
