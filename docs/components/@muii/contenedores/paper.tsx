@@ -1,17 +1,16 @@
 import React from "react";
-import Paperr from "@mui/material/Paper";
+import Paper from "@mui/material/Paper";
 
-export default function Paper() {
+export default function Paperr() {
   return (
-    <Paperr
-      variant="elevation"
+    <Paper
+      variant="outlined" // elevation | outlined
       component="section"
-      elevation={0}
+      elevation={0} // 0 en adelante
       className=""
-      onClick={() => {}}
-      onDoubleClick={() => {}}
+      square // OPCIONAL elimina el border radius que tiene
       style={{}}
       sx={{}}
-    ></Paperr>
+    ></Paper>
   );
 }

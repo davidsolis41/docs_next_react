@@ -7,7 +7,7 @@ export default function IconButtonn() {
     <IconButton
       aria-label="texto de ayuda a ceguera"
       name=""
-      size="small"
+      size="small" // small | medium | large
       color="secondary"
       className=""
       disabled={false}
