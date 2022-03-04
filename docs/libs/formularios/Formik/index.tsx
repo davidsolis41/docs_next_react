@@ -95,12 +95,12 @@ export default function Form() {
         <TextField
           name="email"
           label="Email"
-          error={Boolean(errors.email)}
-          helperText={Boolean(errors.email) ? errors.email : undefined}
           value={values.email}
           onChange={(e) =>
             String(e.target.value).length <= 10 && handleChange(e)
           }
+          error={Boolean(errors.email)}
+          helperText={Boolean(errors.email) ? errors.email : undefined}
         />
         <Button type="submit" onClick={errorValidate}>
           Enviar

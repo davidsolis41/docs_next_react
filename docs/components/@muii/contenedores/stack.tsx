@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 export default function Stackk() {
   return (
     <Stack
+      component="section"
       spacing={{ xs: 2, sm: 4 }}
       direction={{ xs: "column", sm: "row" }} // row | column | row-reverse | column-reverse
       justifyContent="center" // flex-start | center | flex-end | space-between | space-around | space-evenly

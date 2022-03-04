@@ -1,12 +1,12 @@
 import React from "react";
-import IComunOpcionsContainers from "./@typesContainers/IComunOpcionsContainer";
-import BaseContainer from "./BaseContainer";
+import Stack, { StackProps } from "@mui/material/Stack";
 
-function Table(props: IComunOpcionsContainers) {
+function Table(props: StackProps) {
+  const { direction = "row" } = props;
   return (
-    <BaseContainer component="table" {...props}>
+    <Stack {...props} direction={direction} component="table">
       {props.children}
-    </BaseContainer>
+    </Stack>
   );
 }
 

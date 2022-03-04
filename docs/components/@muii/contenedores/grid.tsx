@@ -5,6 +5,7 @@ export default function Gridd() {
   return (
     <Grid
       container
+      component="section"
       columns={{ xs: 4, md: 12 }}
       direction={{ xs: "column", sm: "row" }} // row | column | row-reverse | column-reverse
       justifyContent="center" // flex-start | center | flex-end | space-between | space-around | space-evenly
@@ -18,6 +19,7 @@ export default function Gridd() {
         xs={6}
         md={8} /* xs, sm, md, lg y xl */
         zeroMinWidth // cuando el child tiene propidad noWrap ej. <Tipography noWrap />
+        component="article"
       >
         <p>xs=6</p>
       </Grid>

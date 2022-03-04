@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller, Control } from "react-hook-form";
-import TextF, { TextFieldProps } from "@mui/material/TextField";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
 import styled from "@mui/material/styles/styled";
 
 export type PropsTexFormField = {
@@ -8,26 +8,6 @@ export type PropsTexFormField = {
   name: string;
   max?: number;
 };
-
-const MyTextField = styled(TextF)(
-  ({ theme }) => `
-  & .MuiOutlinedInput-input {
-    padding: 9px 10px;
-  }
-
-  & label {
-    top: -5px;
-  }
-
-  & .MuiFormHelperText-root {
-    margin-top: 1px;
-    margin-left: 9px;
-    margin-right: 9px;
-  }
-
-  &:hover{}
-`
-);
 
 const TextFormField = (props: TextFieldProps & PropsTexFormField) => (
   <Controller
@@ -38,11 +18,9 @@ const TextFormField = (props: TextFieldProps & PropsTexFormField) => (
       fieldState: { invalid, isTouched, isDirty, error },
       formState,
     }) => (
-      <MyTextField
+      <TextField
         {...props}
         name={name}
-        error={Boolean(error)}
-        helperText={error ? error.message : props.helperText || undefined}
         value={value}
         onChange={(e) => {
           if (props.max && String(e.target.value).length > props.max) return;
@@ -52,6 +30,8 @@ const TextFormField = (props: TextFieldProps & PropsTexFormField) => (
           onBlur();
           if (props.onBlur) props.onBlur(e);
         }}
+        error={Boolean(error)}
+        helperText={error ? error.message : props.helperText || undefined}
       />
     )}
   />

@@ -35,6 +35,7 @@ function Form() {
     reset,
   } = useForm<FormValue>({
     resolver: yupResolver(validationSchema),
+    mode: "all",
     defaultValues: {
       email: "",
       mayor: false,
@@ -92,27 +93,24 @@ function Form() {
         <TextField
           {...register("email")}
           label="Email"
-          error={Boolean(errors.email)}
-          helperText={errors.email ? errors.email.message : undefined}
           value={watch("email")}
           onChange={({ target: { value } }) =>
             String(value).length <= 10 && setValue("email", value)
           }
-          onBlur={({ target: { value } }) => {
-            trigger("email");
-          }}
+          error={Boolean(errors.email)}
+          helperText={errors.email ? errors.email.message : undefined}
         />
 
         <TextFormField
-          control={control}
           name="email"
+          control={control}
           label="Email"
           helperText="Ingresa tu email"
         />
 
         <Controller
-          control={control}
           name="mayor"
+          control={control}
           render={({
             field: { value, onChange, onBlur, ref, name },
             fieldState: { invalid, isTouched, isDirty, error },

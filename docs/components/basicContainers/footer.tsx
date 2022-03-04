@@ -1,12 +1,12 @@
 import React from "react";
-import IComunOpcionsContainers from "./@typesContainers/IComunOpcionsContainer";
-import BaseContainer from "./BaseContainer";
+import Stack, { StackProps } from "@mui/material/Stack";
 
-function Footer(props: IComunOpcionsContainers) {
+function Footer(props: StackProps) {
+  const { direction = "row" } = props;
   return (
-    <BaseContainer component="footer" {...props}>
+    <Stack {...props} direction={direction} component="footer">
       {props.children}
-    </BaseContainer>
+    </Stack>
   );
 }
 

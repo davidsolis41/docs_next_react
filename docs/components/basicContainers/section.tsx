@@ -1,12 +1,12 @@
 import React from "react";
-import IComunOpcionsContainers from "./@typesContainers/IComunOpcionsContainer";
-import BaseContainer from "./BaseContainer";
+import Stack, { StackProps } from "@mui/material/Stack";
 
-function Section(props: IComunOpcionsContainers) {
+function Section(props: StackProps) {
+  const { direction = "row" } = props;
   return (
-    <BaseContainer component="section" {...props}>
+    <Stack {...props} direction={direction} component="section">
       {props.children}
-    </BaseContainer>
+    </Stack>
   );
 }
 

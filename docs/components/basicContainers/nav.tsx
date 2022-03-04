@@ -1,12 +1,12 @@
 import React from "react";
-import IComunOpcionsContainers from "./@typesContainers/IComunOpcionsContainer";
-import BaseContainer from "./BaseContainer";
+import Stack, { StackProps } from "@mui/material/Stack";
 
-function Nav(props: IComunOpcionsContainers) {
+function Nav(props: StackProps) {
+  const { direction = "row" } = props;
   return (
-    <BaseContainer component="nav" {...props}>
+    <Stack {...props} direction={direction} component="nav">
       {props.children}
-    </BaseContainer>
+    </Stack>
   );
 }
 
