@@ -47,6 +47,9 @@ export default function Autocompletado() {
       getOptionLabel={(option) =>
         option.nombreProveedor ? option.nombreProveedor : ""
       }
+      getOptionDisabled={(option) =>
+        option.codigoProveedor === 0 || option.nombreProveedor === ""
+      } // para indicar que opciones estan desabilitadas
       //multiple // definimos que será de seleccion multiple
       //freeSolo // cuando no queremos que limpie si no es una opcion del arreglo
       value={
@@ -60,9 +63,6 @@ export default function Autocompletado() {
       onInputChange={(event, newInputValue) =>
         setTextoAutocomplete(newInputValue)
       }
-      getOptionDisabled={(option) =>
-        option.codigoProveedor === 0 || option.nombreProveedor === ""
-      } // para indicar que opciones estan desabilitadas
       renderInput={(params) => (
         <TextField
           {...params}
@@ -74,9 +74,7 @@ export default function Autocompletado() {
             ...params.InputProps,
             endAdornment: (
               <>
-                {cargando ? (
-                  <CircularProgress color="inherit" size={20} />
-                ) : null}
+                {cargando ? <CircularProgress size={20} /> : null}
                 {params.InputProps.endAdornment}
               </>
             ),
