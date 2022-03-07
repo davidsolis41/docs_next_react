@@ -9,7 +9,7 @@ export default function BottomNavigationn() {
   const [value, setValue] = React.useState("");
   return (
     <BottomNavigation
-      showLabels={true} // true | false
+      showLabels={true} // true | false OPCIONAL mostrar nombre
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
