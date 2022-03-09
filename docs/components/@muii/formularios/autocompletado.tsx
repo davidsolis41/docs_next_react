@@ -20,6 +20,7 @@ export default function Autocompletado() {
 
   React.useEffect(() => {
     (async () => {
+      setCargando(true);
       let peticionProveedores = await Provider.get(
         `${url}/proveedores?nombreProveedor=%${
           proveedorSeleccionado
@@ -34,6 +35,7 @@ export default function Autocompletado() {
         setProveedores([]);
         alert(peticionProveedores.data);
       }
+      setCargando(false);
     })();
   }, [textoAutocomplete, proveedorSeleccionado]);
 
