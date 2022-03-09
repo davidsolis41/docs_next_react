@@ -10,6 +10,7 @@ export default function Stackk() {
       direction={{ xs: "column", sm: "row" }} // row | column | row-reverse | column-reverse
       justifyContent="center" // flex-start | center | flex-end | space-between | space-around | space-evenly
       alignItems="center" // flex-start | center | flex-end | stretch | baseline
+      flexWrap="wrap" // wrap | nowrap
       divider={<Divider orientation="vertical" flexItem />} // OPCIONAL divisores entre elementos
       className=""
       style={{}}

@@ -6,6 +6,18 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useTheme, styled } from "@mui/material/styles";
 import TabPanel from "./tabPanel";
 
+const SmallTabs = styled(Tabs)(({}) => ({
+  minHeight: "35px !important",
+  height: "38px !important",
+}));
+
+const SmallTab = styled(Tab)(({ theme }) => ({
+  minHeight: "35px !important",
+  height: "38px !important",
+  paddingTop: "5px",
+  paddingBottom: "5px",
+}));
+
 export default function Tabss() {
   const theme = useTheme();
   const [tabSeleccionado, setTabSeleccionado] = React.useState(0);

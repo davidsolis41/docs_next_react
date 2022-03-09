@@ -1,10 +1,23 @@
 import React from "react";
-import Stack, { StackProps } from "@mui/material/Stack";
+import Stack from "@mui/material/Stack";
+import IBasicContainer, {
+  align,
+  directionn,
+  justify,
+} from "./@IPropsContainers";
 
-function Footer(props: StackProps) {
-  const { direction = "row" } = props;
+function Footer(props: IBasicContainer) {
+  const { direction, justifyContent, alignItems, flexWrap, ...otrasProps } =
+    props;
   return (
-    <Stack {...props} direction={direction} component="footer">
+    <Stack
+      {...otrasProps}
+      component="footer"
+      direction={directionn(otrasProps)}
+      flexWrap={otrasProps.noWrap ? "nowrap" : "wrap"}
+      justifyContent={justify(otrasProps)}
+      alignItems={align(otrasProps)}
+    >
       {props.children}
     </Stack>
   );
