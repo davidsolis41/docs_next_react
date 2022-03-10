@@ -22,11 +22,7 @@ export default function Autocompletado() {
     (async () => {
       setCargando(true);
       let peticionProveedores = await Provider.get(
-        `${url}/proveedores?nombreProveedor=%${
-          proveedorSeleccionado
-            ? textoAutocomplete.substring(0, 4)
-            : textoAutocomplete
-        }%&PageSize=50`
+        `${url}/proveedores?nombreProveedor=%${textoAutocomplete}%&PageSize=50`
       );
 
       if (peticionProveedores.status === 200) {
@@ -37,7 +33,7 @@ export default function Autocompletado() {
       }
       setCargando(false);
     })();
-  }, [textoAutocomplete, proveedorSeleccionado]);
+  }, [textoAutocomplete]);
 
   return (
     <Autocomplete
