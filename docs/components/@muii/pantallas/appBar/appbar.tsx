@@ -15,7 +15,7 @@ export default function Appbarr() {
       sx={{ top: 0, left: 0 }} // estilos. Posicionamiento cuando es sticky, fixed o absolute
       //enableColorOnDark // OPCIONAL es para que respete el color que se le indica cuando esta en modo oscuro
     >
-      <Toolbar /* esta es la barra del contenido */>
+      <Toolbar className="" sx={{}} /* esta es la barra del contenido */>
         <IconButton edge="start" sx={{ mr: 2 }}>
           <MenuIcon />
         </IconButton>

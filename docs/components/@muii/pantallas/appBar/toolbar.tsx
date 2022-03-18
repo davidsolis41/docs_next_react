@@ -6,6 +6,8 @@ export default function Toolbarr() {
   return (
     <Toolbar
       variant="regular" // regular | dense (solo para esxritorio) extiende la barra
+      className=""
+      sx={{}}
     ></Toolbar>
   );
 }
