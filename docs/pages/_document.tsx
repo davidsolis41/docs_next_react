@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-function Document() {
+function Document(): JSX.Element {
   return (
     <Html lang="es">
       <Head />

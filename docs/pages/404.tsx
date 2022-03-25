@@ -1,4 +1,4 @@
-function Custom404() {
+function Custom404(): JSX.Element {
   return <div>Estado 404</div>;
 }
 

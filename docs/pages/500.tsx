@@ -1,4 +1,4 @@
-function Custom500() {
+function Custom500(): JSX.Element {
   return <div>Estado 500</div>;
 }
 
