@@ -8,7 +8,10 @@ class Provider {
     "Content-Type": "application/json",
   };
 
-  public async get(url: string, headers?: any): Promise<ResProv> {
+  public async get<T>(
+    url: string,
+    headers?: any
+  ): Promise<{ status: number; data: T }> {
     let peticionGet: Response = await fetch(url, {
       method: "GET",
       headers: this.getHeaders(this.headders, headers),
@@ -20,7 +23,11 @@ class Provider {
     return await this.compStatus(peticionGet);
   }
 
-  public async post(url: string, headers?: any, body?: any): Promise<ResProv> {
+  public async post<T>(
+    url: string,
+    headers?: any,
+    body?: any
+  ): Promise<{ status: number; data: T }> {
     let peticionPost: Response = await fetch(url, {
       method: "POST",
       headers: this.getHeaders(this.headders, headers),
@@ -33,7 +40,11 @@ class Provider {
     return await this.compStatus(peticionPost);
   }
 
-  public async put(url: string, headers?: any, body?: any): Promise<ResProv> {
+  public async put<T>(
+    url: string,
+    headers?: any,
+    body?: any
+  ): Promise<{ status: number; data: T }> {
     let peticionPut: Response = await fetch(url, {
       method: "PUT",
       headers: this.getHeaders(this.headders, headers),
@@ -46,11 +57,11 @@ class Provider {
     return await this.compStatus(peticionPut);
   }
 
-  public async delete(
+  public async delete<T>(
     url: string,
     headers?: any,
     body?: any
-  ): Promise<ResProv> {
+  ): Promise<{ status: number; data: T }> {
     let peticionDelete: Response = await fetch(url, {
       method: "DELETE",
       headers: this.getHeaders(this.headders, headers),
@@ -63,7 +74,11 @@ class Provider {
     return await this.compStatus(peticionDelete);
   }
 
-  public async patch(url: string, headers?: any, body?: any): Promise<ResProv> {
+  public async patch<T>(
+    url: string,
+    headers?: any,
+    body?: any
+  ): Promise<{ status: number; data: T }> {
     let peticionPatch: Response = await fetch(url, {
       method: "PATCH",
       headers: this.getHeaders(this.headders, headers),
