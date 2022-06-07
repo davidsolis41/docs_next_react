@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async function (
   context
 ): Promise<GetStaticPropsResult<IProps>> {
   //los params son todo lo que esta despues del / en la url
-  let { params } = context;
+  const { params } = context;
 
   //peticion que se realiza del lado del servidor
   const res: Response = await fetch(`https://.../data`);

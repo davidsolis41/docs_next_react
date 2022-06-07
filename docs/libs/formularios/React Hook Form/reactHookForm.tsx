@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import TextFormField from "./textFormField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import Provider from "../../../providers/Provider";
+import Fetcher from "../../../fetchers/Fetcher";
 import FormValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,7 +43,7 @@ function Form() {
   });
 
   async function onSubmit(values: FormValue) {
-    let peticion = await Provider.post(``, {}, values);
+    let peticion = await Fetcher.post(``, { body: values });
 
     if (peticion.status == 200) {
       console.log("peticion exitosa");

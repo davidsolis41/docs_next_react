@@ -1,12 +1,12 @@
 import React from "react";
+import Head from "next/head";
+import Image from "next/image";
 import type {
   NextPage,
   GetStaticPaths,
   GetStaticProps,
   GetStaticPropsResult,
 } from "next";
-import Head from "next/head";
-import Image from "next/image";
 
 interface IProps {
   datos: any[];
@@ -54,10 +54,10 @@ export const getStaticProps: GetStaticProps = async function (
   context
 ): Promise<GetStaticPropsResult<IProps>> {
   //los params son los argumentos de la url despues de /
-  let params: any = context.params;
+  const { params } = context;
 
   //peticion que se realiza del lado del servidor
-  const res: Response = await fetch(`https://.../data/${params.id}`);
+  const res: Response = await fetch(`https://.../data/${params?.id}`);
   const datos: any[] = await res.json();
 
   //devolvera una pagina 404 si la condicion se cumple

@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import GlobalContext from "./globalContext";
-import { IGlobalState } from "./types";
+import { GlobalContext } from "./index";
+import type { IGlobalContext } from "./types";
 
-const useGlobalContext = (): IGlobalState => useContext(GlobalContext) as any;
-
-export default useGlobalContext;
+export default (): IGlobalContext => useContext(GlobalContext) as any;

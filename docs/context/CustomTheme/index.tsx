@@ -1,13 +1,9 @@
 import React from "react";
-import {
-  createTheme,
-  Theme,
-  ThemeOptions,
-  ThemeProvider,
-} from "@mui/material/styles";
-import { TypographyOptions } from "@mui/material/styles/createTypography";
-import { Components } from "@mui/material/styles/components";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useGlobalContext from "../GlobalContext/useGlobalContext";
+import type { Theme, ThemeOptions } from "@mui/material/styles/createTheme";
+import type { TypographyOptions } from "@mui/material/styles/createTypography";
+import type { Components } from "@mui/material/styles/components";
 
 interface Iprops {
   children?: any;

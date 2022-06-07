@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import CircularProgress from "@mui/material/CircularProgress";
-import Provider from "../../../providers/Provider";
+import Fetcher from "../../../fetchers/Fetcher";
 import { url } from "../../../utils/url";
 
 export default function Autocompletado() {
@@ -21,7 +21,7 @@ export default function Autocompletado() {
   React.useEffect(() => {
     (async () => {
       setCargando(true);
-      let peticionProveedores = await Provider.get(
+      let peticionProveedores = await Fetcher.get<any[]>(
         `${url}/proveedores?nombreProveedor=%${textoAutocomplete}%&PageSize=50`
       );
 

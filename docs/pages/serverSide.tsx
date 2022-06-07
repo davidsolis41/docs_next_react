@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async function (
   context
 ): Promise<GetServerSidePropsResult<IProps>> {
   //el query es todo lo que esta despues del ? en la url
-  let { query } = context;
+  const { query } = context;
 
   //peticion que se realiza del lado del servidor
   const res: Response = await fetch(`https://.../data`);

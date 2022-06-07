@@ -1,20 +1,25 @@
+type Parameters = {
+  headers?: any;
+  body?: any;
+};
+
 type ResProv = {
   status: number;
   data: any;
 };
 
-class Provider {
+class Fetcher {
   private headders: any = {
     "Content-Type": "application/json",
   };
 
   public async get<T>(
     url: string,
-    headers?: any
+    parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
     let peticionGet: Response = await fetch(url, {
       method: "GET",
-      headers: this.getHeaders(this.headders, headers),
+      headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
       cache: "no-cache",
       credentials: "same-origin",
@@ -25,16 +30,15 @@ class Provider {
 
   public async post<T>(
     url: string,
-    headers?: any,
-    body?: any
+    parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
     let peticionPost: Response = await fetch(url, {
       method: "POST",
-      headers: this.getHeaders(this.headders, headers),
+      headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
       cache: "no-cache",
       credentials: "same-origin",
-      body: JSON.stringify(body),
+      body: JSON.stringify(parameters?.body),
     });
 
     return await this.compStatus(peticionPost);
@@ -42,16 +46,15 @@ class Provider {
 
   public async put<T>(
     url: string,
-    headers?: any,
-    body?: any
+    parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
     let peticionPut: Response = await fetch(url, {
       method: "PUT",
-      headers: this.getHeaders(this.headders, headers),
+      headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
       cache: "no-cache",
       credentials: "same-origin",
-      body: JSON.stringify(body),
+      body: JSON.stringify(parameters?.body),
     });
 
     return await this.compStatus(peticionPut);
@@ -59,16 +62,15 @@ class Provider {
 
   public async delete<T>(
     url: string,
-    headers?: any,
-    body?: any
+    parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
     let peticionDelete: Response = await fetch(url, {
       method: "DELETE",
-      headers: this.getHeaders(this.headders, headers),
+      headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
       cache: "no-cache",
       credentials: "same-origin",
-      body: JSON.stringify(body),
+      body: JSON.stringify(parameters?.body),
     });
 
     return await this.compStatus(peticionDelete);
@@ -76,16 +78,15 @@ class Provider {
 
   public async patch<T>(
     url: string,
-    headers?: any,
-    body?: any
+    parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
     let peticionPatch: Response = await fetch(url, {
       method: "PATCH",
-      headers: this.getHeaders(this.headders, headers),
+      headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
       cache: "no-cache",
       credentials: "same-origin",
-      body: JSON.stringify(body),
+      body: JSON.stringify(parameters?.body),
     });
 
     return await this.compStatus(peticionPatch);
@@ -126,4 +127,4 @@ class Provider {
   }
 }
 
-export default new Provider();
+export default new Fetcher();

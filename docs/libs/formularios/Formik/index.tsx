@@ -4,7 +4,7 @@ import { useFormik, FormikHelpers } from "formik/dist";
 import { ToastContainer, toast } from "react-toastify/dist";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Provider from "../../../providers/Provider";
+import Fetcher from "../../../fetchers/Fetcher";
 import formValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -45,7 +45,7 @@ export default function Form() {
     helpers: FormikHelpers<formValue>
   ) {
     helpers.setSubmitting(true);
-    let peticion = await Provider.post(``, {}, values);
+    let peticion = await Fetcher.post(``, { body: values });
     helpers.setSubmitting(false);
 
     if (peticion.status == 200) {
