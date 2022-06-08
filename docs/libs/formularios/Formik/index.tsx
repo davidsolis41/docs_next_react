@@ -4,7 +4,7 @@ import { useFormik, FormikHelpers } from "formik/dist";
 import { ToastContainer, toast } from "react-toastify/dist";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Fetcher from "../../../fetchers/Fetcher";
+import Fetcher from "../../../fetchers/fetcher";
 import formValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 

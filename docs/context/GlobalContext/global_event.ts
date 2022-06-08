@@ -1,4 +1,4 @@
-import Fetcher from "../../fetchers/Fetcher";
+import Fetcher from "../../fetchers/fetcher";
 import { url } from "../../utils/url";
 import {
   SET_TOKEN,

@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import CircularProgress from "@mui/material/CircularProgress";
-import Fetcher from "../../../fetchers/Fetcher";
+import Fetcher from "../../../fetchers/fetcher";
 import { url } from "../../../utils/url";
 
 export default function Autocompletado() {

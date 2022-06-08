@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import TextFormField from "./textFormField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import Fetcher from "../../../fetchers/Fetcher";
+import Fetcher from "../../../fetchers/fetcher";
 import FormValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 
