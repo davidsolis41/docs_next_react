@@ -1,6 +1,7 @@
 type Parameters = {
   headers?: any;
   body?: any;
+  maper?: any;
 };
 
 type ResProv = {
@@ -25,7 +26,7 @@ class Fetcher {
       credentials: "same-origin",
     });
 
-    return await this.compStatus(peticionGet);
+    return await this.compStatus(peticionGet, parameters?.maper);
   }
 
   public async post<T>(
@@ -41,7 +42,7 @@ class Fetcher {
       body: JSON.stringify(parameters?.body),
     });
 
-    return await this.compStatus(peticionPost);
+    return await this.compStatus(peticionPost, parameters?.maper);
   }
 
   public async put<T>(
@@ -57,7 +58,7 @@ class Fetcher {
       body: JSON.stringify(parameters?.body),
     });
 
-    return await this.compStatus(peticionPut);
+    return await this.compStatus(peticionPut, parameters?.maper);
   }
 
   public async delete<T>(
@@ -73,7 +74,7 @@ class Fetcher {
       body: JSON.stringify(parameters?.body),
     });
 
-    return await this.compStatus(peticionDelete);
+    return await this.compStatus(peticionDelete, parameters?.maper);
   }
 
   public async patch<T>(
@@ -89,7 +90,7 @@ class Fetcher {
       body: JSON.stringify(parameters?.body),
     });
 
-    return await this.compStatus(peticionPatch);
+    return await this.compStatus(peticionPatch, parameters?.maper);
   }
 
   private getHeaders(locals: any, user?: any): any {
@@ -111,11 +112,25 @@ class Fetcher {
     } else return locals;
   }
 
-  private async compStatus(peticion: Response): Promise<ResProv> {
+  private async compStatus(peticion: Response, Maper?: any): Promise<ResProv> {
     const { status } = peticion;
     let respuesta: ResProv;
+
     try {
-      respuesta = { status, data: await peticion.clone().json() };
+      if (!Maper || Maper === undefined) {
+        respuesta = { status, data: await peticion.clone().json() };
+      } else {
+        const jsons = await peticion.clone().json();
+
+        try {
+          respuesta = { status, data: new Maper(jsons).lista };
+        } catch (ex) {
+          respuesta = {
+            status,
+            data: "Los datos recibidos no pueden ser convertidos a objetos de tipo 'Maper'",
+          };
+        }
+      }
     } catch (e) {
       try {
         respuesta = { status, data: await peticion.clone().text() };
