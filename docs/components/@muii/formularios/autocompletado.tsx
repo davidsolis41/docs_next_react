@@ -38,22 +38,20 @@ export default function Autocompletado() {
   return (
     <Autocomplete
       aria-label="texto de ayuda para ceguera"
-      options={proveedores}
+      options={proveedores || []}
       className="w-20"
       loading={cargando} // se utiliza cuando se llena asincronamente
       blurOnSelect
-      getOptionLabel={(option) =>
-        option.nombreProveedor ? option.nombreProveedor : ""
-      }
+      getOptionLabel={(option) => option.nombreProveedor || ""}
       getOptionDisabled={(option) =>
         option.codigoProveedor === 0 || option.nombreProveedor === ""
       } // para indicar que opciones estan desabilitadas
       //multiple // definimos que será de seleccion multiple
       //freeSolo // cuando no queremos que limpie si no es una opcion del arreglo
       value={
-        proveedores.filter(
+        proveedores?.filter(
           (prov) => prov.codigoProveedor == proveedorSeleccionado
-        )[0] || (undefined as any)
+        )[0]
       }
       onChange={(event, newValue) => {
         setProveedorSeleccionado(newValue?.codigoProveedor || 0);
