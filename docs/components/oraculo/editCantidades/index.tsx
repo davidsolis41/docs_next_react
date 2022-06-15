@@ -15,34 +15,28 @@ function EditCantidades(props: IEditCantidades) {
     borderWidth = 1,
   } = props;
 
+  const shareStylesButtons: React.CSSProperties = {
+    cursor: "pointer",
+    borderRadius: 0,
+    outline: "none",
+    borderWidth: `${borderWidth}px`,
+    borderColor,
+    borderStyle,
+    borderTopLeftRadius: borderRadius,
+    borderBottomLeftRadius: borderRadius,
+    width: "23%",
+    fontWeight: "bold",
+    flexGrow: 1,
+  };
+
   const styles = {
     leftButton: {
-      cursor: "pointer",
-      borderRadius: 0,
-      outline: "none",
-      borderWidth: `${borderWidth}px`,
-      borderColor,
-      borderStyle,
-      borderTopLeftRadius: borderRadius,
-      borderBottomLeftRadius: borderRadius,
-      width: "23%",
-      fontWeight: "bold",
+      ...shareStylesButtons,
       fontSize: "1.2em",
-      flexGrow: 1,
     } as React.CSSProperties,
     RightButton: {
-      cursor: "pointer",
-      borderRadius: 0,
-      outline: "none",
-      borderWidth: `${borderWidth}px`,
-      borderColor,
-      borderStyle,
-      borderTopRightRadius: borderRadius,
-      borderBottomRightRadius: borderRadius,
-      width: "23%",
-      fontWeight: "bold",
+      ...shareStylesButtons,
       fontSize: "1em",
-      flexGrow: 1,
     } as React.CSSProperties,
     input: {
       borderLeft: "0px",

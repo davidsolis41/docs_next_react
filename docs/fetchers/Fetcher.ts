@@ -18,7 +18,7 @@ class Fetcher {
     url: string,
     parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
-    let peticionGet: Response = await fetch(url, {
+    const peticionGet: Response = await fetch(url, {
       method: "GET",
       headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
@@ -33,7 +33,7 @@ class Fetcher {
     url: string,
     parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
-    let peticionPost: Response = await fetch(url, {
+    const peticionPost: Response = await fetch(url, {
       method: "POST",
       headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
@@ -49,7 +49,7 @@ class Fetcher {
     url: string,
     parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
-    let peticionPut: Response = await fetch(url, {
+    const peticionPut: Response = await fetch(url, {
       method: "PUT",
       headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
@@ -65,7 +65,7 @@ class Fetcher {
     url: string,
     parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
-    let peticionDelete: Response = await fetch(url, {
+    const peticionDelete: Response = await fetch(url, {
       method: "DELETE",
       headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
@@ -81,7 +81,7 @@ class Fetcher {
     url: string,
     parameters?: Parameters
   ): Promise<{ status: number; data: T }> {
-    let peticionPatch: Response = await fetch(url, {
+    const peticionPatch: Response = await fetch(url, {
       method: "PATCH",
       headers: this.getHeaders(this.headders, parameters?.headers),
       mode: "cors",
