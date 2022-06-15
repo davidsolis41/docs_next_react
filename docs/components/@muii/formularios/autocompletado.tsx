@@ -7,21 +7,26 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Fetcher from "../../../fetchers/Fetcher";
 import { url } from "../../../utils/url";
 
+type IProveedor = {
+  codigoProveedor: number;
+  nombreProveedor: string;
+};
+
 export default function Autocompletado() {
-  const [proveedores, setProveedores] = React.useState<any[]>([
+  const [proveedores, setProveedores] = React.useState<IProveedor[]>([
     { codigoProveedor: 1, nombreProveedor: "prov 1" },
     { codigoProveedor: 2, nombreProveedor: "prov 2" },
     { codigoProveedor: 3, nombreProveedor: "prov 3" },
   ]);
 
-  const [proveedorSeleccionado, setProveedorSeleccionado] = React.useState("");
+  const [proveedorSeleccionado, setProveedorSeleccionado] = React.useState(0);
   const [textoAutocomplete, setTextoAutocomplete] = React.useState("");
   const [cargando, setCargando] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
       setCargando(true);
-      let peticionProveedores = await Fetcher.get<any[]>(
+      let peticionProveedores = await Fetcher.get<IProveedor[]>(
         `${url}/proveedores?nombreProveedor=%${textoAutocomplete}%&PageSize=50`
       );
 
