@@ -1,14 +1,13 @@
-import React, { createContext } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { GlobalInitialState } from "./global_state";
 import GlobalReducer from "./global_event_dispatcher";
 import GlobalEvent from "./global_event";
 import type { NextRouter } from "next/router";
-import type { GlobalState } from "./global_state";
 import type { IGlobalContext } from "./types";
 
 const initialState: GlobalInitialState = new GlobalInitialState();
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = React.createContext(initialState);
 
 //funcion que proveera el estado a nuestra aplicacion
 export default function GlobalContextProvider({ children }: any): JSX.Element {
@@ -52,7 +51,6 @@ export default function GlobalContextProvider({ children }: any): JSX.Element {
     data: state,
     getLogin: events.getLogin,
     setToken: events.setToken,
-    setFiltroActivo: events.setFiltroActivo,
     toggleTheme: events.toggleTheme,
   };
 

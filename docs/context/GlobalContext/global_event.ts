@@ -1,11 +1,6 @@
 import Fetcher from "../../fetchers/Fetcher";
 import { url } from "../../utils/url";
-import {
-  SET_TOKEN,
-  SET_FILTRO,
-  GET_LOGIN,
-  TOGGLE_THEME,
-} from "./actionTypesGlobal";
+import { SET_TOKEN, GET_LOGIN, TOGGLE_THEME } from "./actionTypesGlobal";
 import type { NextRouter } from "next/router";
 import type { IActionReducer } from "./types";
 
@@ -50,10 +45,6 @@ export default class GlobalEvent {
         this.router.push("/login");
       }
     }
-  }
-
-  setFiltroActivo(filtroAplicado: string) {
-    this.dispatch({ type: SET_FILTRO, payload: filtroAplicado });
   }
 
   toggleTheme(tema: "light" | "dark") {

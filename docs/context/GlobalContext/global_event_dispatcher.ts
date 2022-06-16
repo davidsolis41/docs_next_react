@@ -1,9 +1,4 @@
-import {
-  SET_TOKEN,
-  GET_LOGIN,
-  SET_FILTRO,
-  TOGGLE_THEME,
-} from "./actionTypesGlobal";
+import { SET_TOKEN, GET_LOGIN, TOGGLE_THEME } from "./actionTypesGlobal";
 import { GlobalModifyState } from "./global_state";
 import type { GlobalState } from "./global_state";
 import type { IActionReducer, IGlobalState } from "./types";
@@ -32,10 +27,6 @@ export default function GlobalReducer(
       return modifyState({
         auth: { token: payload, login: true },
       });
-      break;
-
-    case SET_FILTRO:
-      return modifyState({ filtroAplicado: payload });
       break;
 
     case TOGGLE_THEME:

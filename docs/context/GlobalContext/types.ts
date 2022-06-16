@@ -13,13 +13,11 @@ export type Auth = {
 export type IGlobalState = {
   auth?: Auth;
   theme?: string;
-  filtroAplicado?: string;
 };
 
 export type IGlobalContext = {
   data: GlobalState;
   getLogin: () => Promise<void>;
   setToken: (token: string) => void;
-  setFiltroActivo: (filtroAplicado: string) => void;
   toggleTheme: (tema: "light" | "dark") => void;
 };
