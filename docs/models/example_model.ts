@@ -1,13 +1,13 @@
 export interface ExampleInterface {
-  name: String;
-  description: String;
+  name: string;
+  description: string;
   value: number;
 }
 
 export class Example {
   constructor(
-    public name: String,
-    public description: String,
+    public name: string,
+    public description: string,
     public value: number
   ) {}
 
