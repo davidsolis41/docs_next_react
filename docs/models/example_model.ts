@@ -1,4 +1,4 @@
-export interface ExampleInterface {
+export interface IExample {
   name: string;
   description: string;
   value: number;
@@ -11,7 +11,7 @@ export class Example {
     public value: number
   ) {}
 
-  static fromJson(json: ExampleInterface): Example {
+  static fromJson(json: IExample): Example {
     return new Example(
       json.name || "",
       json.description || "",
@@ -19,7 +19,7 @@ export class Example {
     );
   }
 
-  toJson(): ExampleInterface {
+  toJson(): IExample {
     return {
       name: this.name,
       description: this.description,
@@ -31,13 +31,13 @@ export class Example {
 export class Examples {
   items: Example[];
 
-  constructor(list: ExampleInterface[]) {
+  constructor(list: IExample[]) {
     if (list.length < 1) this.items = [];
 
     this.items = list.map((item) => Example.fromJson(item));
   }
 
-  static toJson(list: Example[]): ExampleInterface[] {
+  static toJson(list: Example[]): IExample[] {
     return list.map((item) => item.toJson());
   }
 }
