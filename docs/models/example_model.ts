@@ -11,7 +11,7 @@ export class Example {
     public value: number
   ) {}
 
-  static fromJson(json: IExample): Example {
+  public static fromJson(json: IExample): Example {
     return new Example(
       json.name || "",
       json.description || "",
@@ -19,7 +19,7 @@ export class Example {
     );
   }
 
-  toJson(): IExample {
+  public toJson(): IExample {
     return {
       name: this.name,
       description: this.description,
@@ -29,7 +29,7 @@ export class Example {
 }
 
 export class Examples {
-  items: Example[];
+  public items: Example[];
 
   constructor(list: IExample[]) {
     if (list.length < 1) this.items = [];
@@ -37,7 +37,11 @@ export class Examples {
     this.items = list.map((item) => Example.fromJson(item));
   }
 
-  static toJson(list: Example[]): IExample[] {
+  public toJson(): IExample[] {
+    return this.items.map((item) => item.toJson());
+  }
+
+  public static toJsonList(list: Example[]): IExample[] {
     return list.map((item) => item.toJson());
   }
 }
