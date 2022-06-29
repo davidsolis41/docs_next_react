@@ -41,7 +41,7 @@ export class Examples {
     return this.items.map((item) => item.toJson());
   }
 
-  public static toJsonList(list: Example[]): IExample[] {
+  public static toJsonExternalList(list: Example[]): IExample[] {
     return list.map((item) => item.toJson());
   }
 }
