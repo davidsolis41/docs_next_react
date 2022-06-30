@@ -14,8 +14,11 @@ function ReorderList(props: IReorderList) {
     <ReactSortable
       list={items}
       className={props.className}
-      setList={(newList: any[]) => {
-        if (onChange) onChange(newList);
+      setList={async (newList: any[]) => {
+        if (onChange) {
+          await onChange(newList);
+          return;
+        }
         setItems(newList);
       }}
       ghostClass={ghostClass} // clase del fantasma opacity: 0;

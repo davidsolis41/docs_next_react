@@ -1,13 +1,13 @@
 import type { Auth, IGlobalState } from "./types";
 
 export abstract class GlobalState {
+  public auth: Auth;
+  public theme: string;
+
   constructor(state: GlobalState) {
     this.auth = state.auth;
     this.theme = state.theme;
   }
-
-  public auth: Auth;
-  public theme: string;
 }
 
 export class GlobalInitialState extends GlobalState {
