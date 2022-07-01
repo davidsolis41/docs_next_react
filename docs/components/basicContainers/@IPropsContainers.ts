@@ -1,5 +1,4 @@
-import Stack, { StackProps } from "@mui/material/Stack";
-import { ResponsiveStyleValue } from "@mui/system";
+import { StackProps } from "@mui/material/Stack";
 
 export default interface IBasicContainer extends StackProps {
   flex_row?: boolean;
@@ -16,8 +15,8 @@ export default interface IBasicContainer extends StackProps {
   align_start?: boolean;
   align_center?: boolean;
   align_end?: boolean;
-  align_baseline: boolean;
-  align_stretch: boolean;
+  align_baseline?: boolean;
+  align_stretch?: boolean;
 }
 
 export function align(
@@ -75,5 +74,3 @@ export function directionn(
   if (props.flex_column_reverse) return "column-reverse";
   return "row";
 }
-
-<Stack justifyContent="space-evenly"></Stack>;
