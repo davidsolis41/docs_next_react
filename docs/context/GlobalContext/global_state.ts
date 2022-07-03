@@ -22,8 +22,11 @@ export class GlobalInitialState extends GlobalState {
 export class GlobalModifyState extends GlobalState {
   constructor(lastState: GlobalState, newState: IGlobalState) {
     super({
-      auth: newState.auth || lastState.auth,
-      theme: newState.theme || lastState.theme,
+      auth: comprobacionValor(newState.auth, lastState.auth),
+      theme: comprobacionValor(newState.theme, lastState.theme),
     });
   }
 }
+
+const comprobacionValor = (newStateProp: any, lastStateProp: any) =>
+  typeof newStateProp !== "undefined" ? newStateProp : lastStateProp;
