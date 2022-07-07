@@ -1,4 +1,4 @@
-export default interface FormValue {
+export default interface IFormValue {
   email: string;
   mayor: boolean;
 }

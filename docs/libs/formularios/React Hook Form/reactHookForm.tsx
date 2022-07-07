@@ -9,14 +9,15 @@ import TextFormField from "./textFormField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import Fetcher from "../../../fetchers/Fetcher";
-import FormValue from "./typesForm";
+import IFormValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 
-const validationSchema = yup.object({
+const validationSchema: yup.SchemaOf<IFormValue> = yup.object({
   email: yup
     .string()
     .email("Ingresa un email valido")
     .required("El email es requerido"),
+  mayor: yup.boolean().required(),
 });
 
 function Form() {
@@ -33,7 +34,7 @@ function Form() {
     clearErrors,
     trigger,
     reset,
-  } = useForm<FormValue>({
+  } = useForm<IFormValue>({
     resolver: yupResolver(validationSchema),
     mode: "all",
     defaultValues: {
@@ -42,7 +43,7 @@ function Form() {
     },
   });
 
-  async function onSubmit(values: FormValue) {
+  async function onSubmit(values: IFormValue) {
     let peticion = await Fetcher.post(``, { body: values });
 
     if (peticion.status == 200) {
