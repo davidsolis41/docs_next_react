@@ -22,19 +22,11 @@ export default interface IBasicContainer extends StackProps {
 export function align(
   props: IBasicContainer
 ): "flex-start" | "center" | "flex-end" | "baseline" | "stretch" {
-  const {
-    align_start,
-    align_center,
-    align_end,
-    align_baseline,
-    align_stretch,
-  } = props;
-
-  if (align_start) return "flex-start";
-  if (align_center) return "center";
-  if (align_end) return "flex-end";
-  if (align_baseline) return "baseline";
-  if (align_stretch) return "stretch";
+  if (typeof props.align_start !== "undefined") return "flex-start";
+  if (typeof props.align_center !== "undefined") return "center";
+  if (typeof props.align_end !== "undefined") return "flex-end";
+  if (typeof props.align_baseline !== "undefined") return "baseline";
+  if (typeof props.align_stretch !== "undefined") return "stretch";
   return "flex-start";
 }
 
@@ -47,30 +39,21 @@ export function justify(
   | "space-between"
   | "space-around"
   | "space-evenly" {
-  const {
-    justify_start,
-    justify_center,
-    justify_end,
-    space_between,
-    space_around,
-    space_evenly,
-  } = props;
-
-  if (justify_start) return "flex-start";
-  if (justify_center) return "center";
-  if (justify_end) return "flex-end";
-  if (space_between) return "space-between";
-  if (space_around) return "space-around";
-  if (space_evenly) return "space-evenly";
+  if (typeof props.justify_start !== "undefined") return "flex-start";
+  if (typeof props.justify_center !== "undefined") return "center";
+  if (typeof props.justify_end !== "undefined") return "flex-end";
+  if (typeof props.space_between !== "undefined") return "space-between";
+  if (typeof props.space_around !== "undefined") return "space-around";
+  if (typeof props.space_evenly !== "undefined") return "space-evenly";
   return "flex-start";
 }
 
 export function directionn(
   props: IBasicContainer
 ): "row" | "row-reverse" | "column" | "column-reverse" {
-  if (props.flex_row) return "row";
-  if (props.flex_column) return "column";
-  if (props.flex_row_reverse) return "row-reverse";
-  if (props.flex_column_reverse) return "column-reverse";
+  if (typeof props.flex_row !== "undefined") return "row";
+  if (typeof props.flex_column !== "undefined") return "column";
+  if (typeof props.flex_row_reverse !== "undefined") return "row-reverse";
+  if (typeof props.flex_column_reverse !== "undefined") return "column-reverse";
   return "row";
 }
