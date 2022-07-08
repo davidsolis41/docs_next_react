@@ -1,26 +1,19 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import IBasicContainer, {
-  align,
-  directionn,
-  justify,
-} from "./@IPropsContainers";
+import { align, directionn, justify } from "./@IPropsContainers";
+import type IBasicContainer from "./@IPropsContainers";
 
-function Main(props: IBasicContainer) {
-  const { direction, justifyContent, alignItems, flexWrap, ...otrasProps } =
-    props;
-  return (
-    <Stack
-      {...otrasProps}
-      component="main"
-      direction={directionn(otrasProps)}
-      flexWrap={otrasProps.noWrap ? "nowrap" : "wrap"}
-      justifyContent={justify(otrasProps)}
-      alignItems={align(otrasProps)}
-    >
-      {props.children}
-    </Stack>
-  );
-}
+const Main = (props: IBasicContainer) => (
+  <Stack
+    {...props}
+    component="main"
+    direction={directionn(props)}
+    flexWrap={props.noWrap ? "nowrap" : "wrap"}
+    justifyContent={justify(props)}
+    alignItems={align(props)}
+  >
+    {props.children}
+  </Stack>
+);
 
 export default Main;

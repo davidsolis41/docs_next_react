@@ -1,26 +1,19 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import IBasicContainer, {
-  align,
-  directionn,
-  justify,
-} from "./@IPropsContainers";
+import { align, directionn, justify } from "./@IPropsContainers";
+import type IBasicContainer from "./@IPropsContainers";
 
-function Aside(props: IBasicContainer) {
-  const { direction, justifyContent, alignItems, flexWrap, ...otrasProps } =
-    props;
-  return (
-    <Stack
-      {...otrasProps}
-      component="aside"
-      direction={directionn(otrasProps)}
-      flexWrap={otrasProps.noWrap ? "nowrap" : "wrap"}
-      justifyContent={justify(otrasProps)}
-      alignItems={align(otrasProps)}
-    >
-      {props.children}
-    </Stack>
-  );
-}
+const Aside = (props: IBasicContainer) => (
+  <Stack
+    {...props}
+    component="aside"
+    direction={directionn(props)}
+    flexWrap={props.noWrap ? "nowrap" : "wrap"}
+    justifyContent={justify(props)}
+    alignItems={align(props)}
+  >
+    {props.children}
+  </Stack>
+);
 
 export default Aside;
