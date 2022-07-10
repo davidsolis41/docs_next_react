@@ -25,7 +25,7 @@ function Poligon(props: IPoligon) {
 
   // Vincular referencias a Polygon y listeners actuales
   const onLoad = React.useCallback(
-    (polygon) => {
+    (polygon: any) => {
       polygonRef.current = polygon;
       const path = polygon.getPath();
       let lCurrent: any[] = listenersRef.current;

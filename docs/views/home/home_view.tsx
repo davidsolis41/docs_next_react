@@ -1,7 +1,7 @@
 import React from "react";
 
-function home_view() {
+function HomeView() {
   return <div>home_view</div>;
 }
 
-export default home_view;
+export default HomeView;

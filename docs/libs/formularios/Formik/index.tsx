@@ -5,10 +5,10 @@ import { ToastContainer, toast } from "react-toastify/dist";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Fetcher from "../../../fetchers/Fetcher";
-import formValue from "./typesForm";
+import IFormValue from "./typesForm";
 import "react-toastify/dist/ReactToastify.css";
 
-const validationSchema = yup.object({
+const validationSchema: yup.SchemaOf<IFormValue> = yup.object({
   email: yup
     .string()
     .email("Ingresa un email valido")
@@ -29,7 +29,7 @@ export default function Form() {
     setSubmitting,
     setFieldValue,
     setFieldError,
-  } = useFormik<formValue>({
+  } = useFormik<IFormValue>({
     validationSchema,
     onSubmit,
     validateOnMount: false,
@@ -41,11 +41,11 @@ export default function Form() {
   }); // extraccion de propiedades y metodos del formulario
 
   async function onSubmit(
-    values: formValue,
-    helpers: FormikHelpers<formValue>
+    values: IFormValue,
+    helpers: FormikHelpers<IFormValue>
   ) {
     helpers.setSubmitting(true);
-    let peticion = await Fetcher.post(``, { body: values });
+    const peticion = await Fetcher.post(``, { body: values });
     helpers.setSubmitting(false);
 
     if (peticion.status == 200) {
