@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import GlobalInfoReducer from "./reducers/global_info_reducer";
+import GlobalInfoReducer from "./reducers/global_info";
 
 const store = configureStore({
   reducer: {
