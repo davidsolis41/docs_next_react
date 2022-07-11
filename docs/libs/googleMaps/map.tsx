@@ -3,8 +3,14 @@ import React from "react";
 import { IMap } from "./types";
 
 export default React.memo(function (props: IMap) {
-  const onLoadd = React.useCallback(props.onLoad || function (map) {}, []);
-  const onClickk = React.useCallback(props.onClick || function (e) {}, []);
+  const onLoadd = React.useCallback(
+    props.onLoad || function (map: google.maps.Map) {},
+    []
+  );
+  const onClickk = React.useCallback(
+    props.onClick || function (e: google.maps.MapMouseEvent) {},
+    []
+  );
   return (
     <GoogleMap
       onLoad={onLoadd}
