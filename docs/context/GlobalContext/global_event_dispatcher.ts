@@ -1,5 +1,7 @@
-import { SET_TOKEN, GET_LOGIN, TOGGLE_THEME } from "./actionTypesGlobal";
 import { GlobalModifyState } from "./global_state";
+import { SET_TOKEN, GET_LOGIN, TOGGLE_THEME } from "./textActionTypesGlobal";
+
+// Types
 import type { GlobalState } from "./global_state";
 import type { IActionReducer, IGlobalState } from "./types";
 
@@ -9,14 +11,14 @@ export default function GlobalReducer(
   state: GlobalState,
   action: IActionReducer
 ): GlobalState {
-  //El payload es la nueva informacion que se va a setear en el estado
-  const { type, payload } = action;
+  // El payload es la nueva informacion que se va a setear en el estado
+  const { payload } = action;
 
   const modifyState = (newState: IGlobalState): GlobalState =>
     new GlobalModifyState(state, newState);
 
-  //El type nos dice la accion a realizar, se debe retornar el nuevo estado
-  switch (type) {
+  // El type nos dice la accion a realizar, se debe retornar el nuevo estado
+  switch (action.type) {
     case GET_LOGIN:
       return modifyState({
         auth: { token: payload.token, login: payload.login },

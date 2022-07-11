@@ -1,23 +1,35 @@
 import React from "react";
-import { io } from "socket.io-client";
 import useGlobalContext from "../GlobalContext/useGlobalContext";
+import { io } from "socket.io-client";
+
+// Utils
 import { urlSocket } from "../../utils/url";
+
+// Types
 import type { Socket } from "socket.io-client";
 
-export const SocketContext: React.Context<any> = React.createContext({});
+// Creando el contexto inicial con un mensaje de error
+const SocketContext: React.Context<Socket> = React.createContext({
+  msg: "No tienes acceso a SocketContext",
+} as any);
 
-function SocketContextProvider({ children }: { children?: any }) {
+function SocketContextProvider({ children }: any): JSX.Element {
   const {
-    data: { auth },
+    data: {
+      auth: { login, token },
+    },
   } = useGlobalContext();
 
-  const socket: Socket = React.useMemo(() => {
-    return io(urlSocket, {
-      transports: ["websocket"],
-      query: { "x-access-token": auth.token },
-      autoConnect: false,
-    });
-  }, [auth.token]);
+  // * Memorizando el valor de conexion a socket
+  const socket: Socket = React.useMemo(
+    () =>
+      io(urlSocket, {
+        transports: ["websocket"],
+        query: { "x-access-token": token },
+        autoConnect: false,
+      }),
+    [token]
+  );
 
   return (
     <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
@@ -25,6 +37,9 @@ function SocketContextProvider({ children }: { children?: any }) {
 }
 
 export default SocketContextProvider;
+
+// * Creando el hook para utilizar este contexto
+export const useSocketContext = (): Socket => React.useContext(SocketContext);
 
 /*
   import type { Socket } from "socket.io-client";

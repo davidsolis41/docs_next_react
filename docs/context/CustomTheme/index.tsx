@@ -1,15 +1,13 @@
 import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useGlobalContext from "../GlobalContext/useGlobalContext";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+// Types
 import type { Theme, ThemeOptions } from "@mui/material/styles/createTheme";
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 import type { Components } from "@mui/material/styles/components";
 
-interface Iprops {
-  children?: any;
-}
-
-export default function CustomTheme(props: Iprops) {
+export default function CustomTheme({ children }: any): JSX.Element {
   const {
     data: { theme },
   } = useGlobalContext();
@@ -124,12 +122,15 @@ export default function CustomTheme(props: Iprops) {
         black: "#000",
         white: "#fff",
       },
+      // color de textos
       text: {
         primary: "rgba(0, 0, 0, 0.87)",
         secondary: "rgba(0, 0, 0, 0.6)",
         disabled: "rgba(0, 0, 0, 0.38)",
       },
+      // Color de los Dividers
       divider: "rgba(0, 0, 0, 0.12)",
+      // Color del fondo para contenedores
       background: {
         default: "#fafafa",
         paper: "#fff",
@@ -153,13 +154,15 @@ export default function CustomTheme(props: Iprops) {
         black: "#000",
         white: "#fff",
       },
+      //colores para textos
       text: {
-        //colores para textos
         primary: "#fff",
         secondary: "rgba(255, 255, 255, 0.7)",
         disabled: "rgba(255, 255, 255,, 0.5)",
       },
+      // Color de los Dividers
       divider: "rgba(255, 255, 255, 0.12)",
+      // Color de fondo para contenedores
       background: {
         default: "#303030",
         paper: "#424242",
@@ -174,5 +177,5 @@ export default function CustomTheme(props: Iprops) {
 
   const customTheme: Theme = createTheme(themaSeleccionado);
 
-  return <ThemeProvider theme={customTheme}>{props.children}</ThemeProvider>;
+  return <ThemeProvider theme={customTheme}>{children}</ThemeProvider>;
 }

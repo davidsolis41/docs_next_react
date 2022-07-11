@@ -5,19 +5,24 @@ export type IActionReducer = {
   payload: any;
 };
 
+export type IGlobalUseReducer = (
+  state: GlobalState,
+  action: IActionReducer
+) => GlobalState;
+
 export type Auth = {
   token: string;
   login: boolean;
 };
 
-export type IGlobalState = {
+export interface IGlobalState {
   auth?: Auth;
   theme?: string;
-};
+}
 
-export type IGlobalContext = {
+export interface IGlobalContext {
   data: GlobalState;
   getLogin: () => Promise<void>;
   setToken: (token: string) => void;
   toggleTheme: (tema: "light" | "dark") => void;
-};
+}
