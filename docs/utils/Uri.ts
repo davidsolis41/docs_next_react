@@ -12,8 +12,8 @@ export default function Uri(
 
   if (queryKeys.length > 0)
     queryKeys.forEach((key, i) => {
-      uri +=
-        i === 0 ? `?${key}=${query[key] || ""}` : `&${key}=${query[key] || ""}`;
+      uri += i === 0 ? "?" : "&";
+      uri += `${key}=${query[key]}`;
     });
 
   return uri;

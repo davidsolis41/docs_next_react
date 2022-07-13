@@ -1,4 +1,4 @@
-import { GlobalModifyState } from "./global_state";
+import { ModifyGlobalState } from "./global_state";
 import { SET_TOKEN, GET_LOGIN, TOGGLE_THEME } from "./textActionTypesGlobal";
 
 // Types
@@ -15,7 +15,7 @@ export default function GlobalReducer(
   const { payload } = action;
 
   const modifyState = (newState: IGlobalState): GlobalState =>
-    new GlobalModifyState(state, newState);
+    new ModifyGlobalState(state, newState);
 
   // El type nos dice la accion a realizar, se debe retornar el nuevo estado
   switch (action.type) {

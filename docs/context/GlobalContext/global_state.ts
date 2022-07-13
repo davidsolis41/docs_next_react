@@ -10,7 +10,7 @@ export abstract class GlobalState {
   }
 }
 
-export class GlobalInitialState extends GlobalState {
+export class InitialGlobalState extends GlobalState {
   constructor() {
     super({
       auth: { token: "", login: false },
@@ -19,7 +19,7 @@ export class GlobalInitialState extends GlobalState {
   }
 }
 
-export class GlobalModifyState extends GlobalState {
+export class ModifyGlobalState extends GlobalState {
   constructor(lastState: GlobalState, newState: IGlobalState) {
     super({
       auth: comprobacionValor(newState.auth, lastState.auth),
@@ -28,5 +28,5 @@ export class GlobalModifyState extends GlobalState {
   }
 }
 
-const comprobacionValor = (newStateProp: any, lastStateProp: any) =>
-  typeof newStateProp !== "undefined" ? newStateProp : lastStateProp;
+const comprobacionValor = <T>(newStateProp: T | undefined, oldStateProp: T) =>
+  typeof newStateProp !== "undefined" ? newStateProp : oldStateProp;

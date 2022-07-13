@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 // Partes del Context
 import GlobalReducer from "./global_event_dispatcher";
-import { GlobalInitialState } from "./global_state";
+import { InitialGlobalState } from "./global_state";
 
 // Utils
 import Fetcher from "../../fetchers/Fetcher";
@@ -28,7 +28,7 @@ export const useGlobalContext = (): IGlobalContext =>
 //funcion que proveera el estado a nuestra aplicacion
 export default function GlobalContextProvider({ children }: any): JSX.Element {
   // * Estado inicial del App
-  const initialState: GlobalState = new GlobalInitialState();
+  const initialState: GlobalState = new InitialGlobalState();
 
   // * Contenedor del estado global y su dispatch para modificar el estado
   const [state, dispatch] = React.useReducer<IGlobalUseReducer, GlobalState>(
