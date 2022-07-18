@@ -7,6 +7,7 @@ import { InitialGlobalState } from "./global_state";
 
 // Utils
 import Fetcher from "../../fetchers/Fetcher";
+import Uri from "../../utils/Uri";
 import { url } from "../../utils/url";
 import { GET_LOGIN, SET_TOKEN, TOGGLE_THEME } from "./textActionTypesGlobal";
 
@@ -14,7 +15,6 @@ import { GET_LOGIN, SET_TOKEN, TOGGLE_THEME } from "./textActionTypesGlobal";
 import type { GlobalState } from "./global_state";
 import type { NextRouter } from "next/router";
 import type { IGlobalContext, IGlobalUseReducer } from "./types";
-import Uri from "../../utils/Uri";
 
 // * Context con un mensaje inicial
 export const GlobalContext: React.Context<IGlobalContext> = React.createContext(

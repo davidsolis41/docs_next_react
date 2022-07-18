@@ -16,7 +16,7 @@ function list() {
   return (
     <List
       aria-labelledby="texto de ayuda para ceguera"
-      component="nav"
+      component="ul"
       className=""
       sx={{ width: "100%", bgcolor: "background.paper" }}
       subheader={
