@@ -1,7 +1,7 @@
 module.exports = {
   content: ["./**/*.{html,js,jsx,ts,tsx}"],
   presets: [],
-  darkMode: 'class', // or 'media'
+  darkMode: 'class', // class | media
   theme: {
     fontFamily: {
       body: ['Roboto'],
