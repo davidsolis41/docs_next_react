@@ -5,18 +5,18 @@ export interface IExample {
 }
 
 export class Example {
-  constructor(
-    public name: string,
-    public description: string,
-    public value: number
-  ) {}
+  public name: string;
+  public description: string;
+  public value: number;
+
+  constructor(json: IExample) {
+    this.name = json.name;
+    this.description = json.description;
+    this.value = json.value;
+  }
 
   public static fromJson(json: IExample): Example {
-    return new Example(
-      json.name || "",
-      json.description || "",
-      Number(json.value) || 0
-    );
+    return new Example(json);
   }
 
   public toJson(): IExample {
@@ -31,13 +31,13 @@ export class Example {
 export class Examples {
   public items: Example[];
 
-  constructor(list: IExample[]) {
-    if (list.length < 1) this.items = [];
+  constructor(listJson: IExample[]) {
+    if (!listJson || listJson.length < 1) this.items = [];
 
-    this.items = list.map((item) => Example.fromJson(item));
+    this.items = listJson.map((item) => new Example(item));
   }
 
-  public toJson(): IExample[] {
+  public toJsonList(): IExample[] {
     return this.items.map((item) => item.toJson());
   }
 
