@@ -16,7 +16,7 @@ export abstract class GlobalInfoState {
   }
 }
 
-export class InitialGlobalInfoState extends GlobalInfoState {
+export default class InitialGlobalInfoState extends GlobalInfoState {
   constructor(params?: IGlobalInfoState) {
     super({
       login: compProp(params?.login, false),
@@ -25,7 +25,7 @@ export class InitialGlobalInfoState extends GlobalInfoState {
     });
   }
 
-  public get toJson() {
+  public toJson() {
     return { login: this.login, token: this.token, theme: this.theme };
   }
 }

@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { InitialExampleState } from "./example_state";
+import InitialExampleState from "./example_state";
 import ExampleEvent from "./example_event";
 
 const Example = createSlice({
   name: "Example",
-  initialState: new InitialExampleState().toJson,
+
+  // ? Initial State For Slice
+  initialState: new InitialExampleState().toJson(),
+
+  // * Sync Reducers
   reducers: ExampleEvent.reducers,
+
+  // * Async Reducers
   extraReducers(builder) {
     builder.addCase(
       ExampleEvent.asyncReducers.getAgeAsync.fulfilled,

@@ -13,7 +13,7 @@ export abstract class ExampleState {
   }
 }
 
-export class InitialExampleState extends ExampleState {
+export default class InitialExampleState extends ExampleState {
   constructor(params?: IExampleState) {
     super({
       name: compProp(params?.name, ""),
@@ -21,7 +21,7 @@ export class InitialExampleState extends ExampleState {
     });
   }
 
-  public get toJson() {
+  public toJson() {
     return { name: this.name, age: this.age };
   }
 }

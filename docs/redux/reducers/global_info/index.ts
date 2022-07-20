@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { InitialGlobalInfoState } from "./global_info_state";
+import InitialGlobalInfoState from "./global_info_state";
 import GlobalInfoEvent from "./global_info_event";
 
 const GlobalInfo = createSlice({
   name: "GlobalInfo",
-  initialState: new InitialGlobalInfoState().toJson,
+
+  // ? Initial State For Slice
+  initialState: new InitialGlobalInfoState().toJson(),
+
+  // * Sync Reducers
   reducers: GlobalInfoEvent.reducers,
+
+  // * Async Reducers
   extraReducers(builder) {
     builder.addCase(
       GlobalInfoEvent.asyncReducers.getLogin.fulfilled,
