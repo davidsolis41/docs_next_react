@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 
 export interface IReturnUseSocket {
-  io: Socket | any;
+  io: Socket;
   online: boolean;
 }
