@@ -123,7 +123,7 @@ class Fetcher {
         const jsons = await peticion.clone().json();
 
         try {
-          respuesta = { status, data: new Maper(jsons) };
+          respuesta = { status, data: Maper(jsons) };
         } catch (ex) {
           respuesta = {
             status,
