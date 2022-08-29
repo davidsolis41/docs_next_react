@@ -1,7 +1,26 @@
 module.exports = {
   content: ["./**/*.{html,js,jsx,ts,tsx}"],
-  presets: [],
   darkMode: 'class', // class | media
+  plugins: [],
+  //presets: [],
+  variantOrder: [
+    'first',
+    'last',
+    'odd',
+    'even',
+    'visited',
+    'checked',
+    'empty',
+    'read-only',
+    'group-hover',
+    'group-focus',
+    'focus-within',
+    'hover',
+    'focus',
+    'focus-visible',
+    'active',
+    'disabled',
+  ],
   theme: {
     fontFamily: {
       body: ['Roboto'],
@@ -896,24 +915,5 @@ module.exports = {
       50: '50',
     },}
   },
-  variantOrder: [
-    'first',
-    'last',
-    'odd',
-    'even',
-    'visited',
-    'checked',
-    'empty',
-    'read-only',
-    'group-hover',
-    'group-focus',
-    'focus-within',
-    'hover',
-    'focus',
-    'focus-visible',
-    'active',
-    'disabled',
-  ],
-  plugins: [],
 }
 
