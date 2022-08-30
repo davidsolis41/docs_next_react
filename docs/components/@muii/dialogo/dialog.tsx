@@ -33,7 +33,7 @@ export default function Dialogg() {
       onClose={() => setOpen(false)}
       scroll="paper" // paper (solo el DialogContent tiene scroll) | body (todo el dialog hace scroll)
       TransitionComponent={SlideTransition} // OPCIONAL, indica la transicion que hara al ingresar en la pantalla
-      fullScreen // OPCIONAL dialogo en pantalla completa
+      fullScreen={false} // OPCIONAL dialogo en pantalla completa
       maxWidth="xs" // xs  | sm | md | lg | xl (OPCIONAL tamaño maximo del modal)
       keepMounted // OPCIONAL es para mantener el componente en el dom, sirve para seo y velocidad
       aria-labelledby="alert-dialog-title"
