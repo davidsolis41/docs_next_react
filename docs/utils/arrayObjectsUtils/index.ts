@@ -1,60 +1,97 @@
 class arrayObjectsUtils {
-  eliminarRepetidos(arrayObjetos: any[], valorFiltrar: string) {
+  eliminarObjeto<T>(arrayObjetos: T[], objetoEliminar: T): T[] {
+    const keys: string[] = Object.keys(objetoEliminar);
+    let newArray: T[] = [];
+
+    for (let i = 0; i < arrayObjetos.length; i++) {
+      let coincidencia: boolean = false;
+      const obj = arrayObjetos[i];
+
+      for (let j = 0; j < keys.length; j++) {
+        const key = keys[j];
+        if ((objetoEliminar as any)[key] === (obj as any)[key])
+          coincidencia = true;
+        else {
+          coincidencia = false;
+          break;
+        }
+      }
+
+      if (!coincidencia) newArray.push(obj);
+    }
+    return newArray;
+  }
+
+  eliminarRepetidos<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     let result: any[] = [];
     arrayObjetos.forEach((item: any) => {
-      if (!result.find((res: any) => res[valorFiltrar] === item[valorFiltrar]))
+      if (
+        !result.find(
+          (res: any) => res[propiedadFiltrar] === item[propiedadFiltrar]
+        )
+      )
         result.push(item);
     });
     return result;
   }
 
-  menorAMayor(arrayObjetos: any[], valorFiltrar: string) {
+  menorAMayor<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
       .map((e) => e)
-      .sort((a, b) => Number(a[valorFiltrar]) - Number(b[valorFiltrar]));
+      .sort(
+        (a: any, b: any) =>
+          Number(a[propiedadFiltrar]) - Number(b[propiedadFiltrar])
+      );
   }
 
-  mayorAMenor(arrayObjetos: any[], valorFiltrar: string) {
+  mayorAMenor<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
       .map((e) => e)
-      .sort((a, b) => Number(b[valorFiltrar]) - Number(a[valorFiltrar]));
+      .sort(
+        (a: any, b: any) =>
+          Number(b[propiedadFiltrar]) - Number(a[propiedadFiltrar])
+      );
   }
 
-  aZ(arrayObjetos: any[], valorFiltrar: string) {
+  aZ<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
-      .map((el, i) =>
-        Object({ index: i, value: el[valorFiltrar].toLowerCase() })
+      .map((el: any, i) =>
+        Object({ index: i, value: el[propiedadFiltrar].toLowerCase() })
       )
       .sort((a, b) => (a.value > b.value ? 1 : a.value < b.value ? -1 : 0))
       .map((el: any) => arrayObjetos[el.index]);
   }
 
-  zA(arrayObjetos: any[], valorFiltrar: string) {
+  zA<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
-      .map((el, i) =>
-        Object({ index: i, value: el[valorFiltrar].toLowerCase() })
+      .map((el: any, i) =>
+        Object({ index: i, value: el[propiedadFiltrar].toLowerCase() })
       )
       .sort((a, b) => (a.value > b.value ? -1 : a.value < b.value ? 1 : 0))
       .map((el: any) => arrayObjetos[el.index]);
   }
 
-  trueFalse(arrayObjetos: any[], valorFiltrar: string) {
+  trueFalse<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
-      .map((el, i) => Object({ index: i, value: Boolean(el[valorFiltrar]) }))
+      .map((el: any, i) =>
+        Object({ index: i, value: Boolean(el[propiedadFiltrar]) })
+      )
       .sort((a, b) => (a.value > b.value ? -1 : a.value < b.value ? 1 : 0))
       .map((el) => arrayObjetos[el.index]);
   }
 
-  falseTrue(arrayObjetos: any[], valorFiltrar: string) {
+  falseTrue<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
-      .map((el, i) => Object({ index: i, value: Boolean(el[valorFiltrar]) }))
+      .map((el: any, i) =>
+        Object({ index: i, value: Boolean(el[propiedadFiltrar]) })
+      )
       .sort((a, b) => (a.value > b.value ? 1 : a.value < b.value ? -1 : 0))
       .map((el) => arrayObjetos[el.index]);
   }
 
   objetosRangosNumericos(
     arrayObjetos: any[],
-    valorFiltrar: string,
+    propiedadFiltrar: string,
     inicial: number | string,
     final: number | string
   ) {
@@ -62,8 +99,8 @@ class arrayObjectsUtils {
       .map((e) => e)
       .filter(
         (el) =>
-          Number(el[valorFiltrar]) >= Number(inicial) &&
-          Number(el[valorFiltrar]) <= Number(final)
+          Number(el[propiedadFiltrar]) >= Number(inicial) &&
+          Number(el[propiedadFiltrar]) <= Number(final)
       );
   }
 }
