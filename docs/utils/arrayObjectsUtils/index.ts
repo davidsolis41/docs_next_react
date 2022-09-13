@@ -1,6 +1,6 @@
 class arrayObjectsUtils {
   eliminarObjeto<T>(arrayObjetos: T[], objetoEliminar: T): T[] {
-    const keys: string[] = Object.keys(objetoEliminar);
+    const keys: string[] = Object.keys(objetoEliminar as any);
     let newArray: T[] = [];
 
     for (let i = 0; i < arrayObjetos.length; i++) {
