@@ -35,6 +35,29 @@ class arrayObjectsUtils {
     return result;
   }
 
+  indexObjeto<T>(arrayObjetos: T[], objetoEliminar: T) {
+    const keys: string[] = Object.keys(objetoEliminar as any);
+    let index: number = -1;
+
+    for (let i = 0; i < arrayObjetos.length; i++) {
+      let coincidencia: boolean = false;
+      const obj = arrayObjetos[i];
+
+      for (let j = 0; j < keys.length; j++) {
+        const key: string = keys[j];
+        if ((objetoEliminar as any)[key] === (obj as any)[key])
+          coincidencia = true;
+        else {
+          coincidencia = false;
+          break;
+        }
+      }
+
+      if (coincidencia) index = i;
+    }
+    return index;
+  }
+
   menorAMayor<T>(arrayObjetos: T[], propiedadFiltrar: string) {
     return arrayObjetos
       .map((e) => e)
