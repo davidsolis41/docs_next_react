@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./**/*.{html,js,jsx,ts,tsx}"],
+  content: [
+    "./pages/*.{html,js,ts,jsx,tsx}",
+    "./components/**/*.{html,js,ts,jsx,tsx}",
+    "./views/**/*.{html,js,ts,jsx,tsx}",
+  ],
   darkMode: 'class', // class | media
   plugins: [],
   //presets: [],
